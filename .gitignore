@@ -1,0 +1,33 @@
+# Visual Studio IntelliSense cache (biggest offender)
+.vs/
+
+# Build outputs
+x64/
+HIS_Syst.*/
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.ipch
+*.tlog
+*.log
+*.recipe
+*.lastbuildstate
+*.FileListAbsolute.txt
+*.unsuccessfulbuild
+
+# VS project user files
+*.vcxproj.user
+*.vcxproj.filters
+*.sln.docstates
+
+# Clion / JetBrains
+.idea/
+*.iml
+
+# Claude config (local)
+.claude/
+
+# Temp / backup
+*.bak
+*.tmp

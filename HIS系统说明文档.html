@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIS 医院信息系统 — 综合说明文档</title>
+<style>
+  :root {
+    --primary: #1a73e8;
+    --primary-light: #e8f0fe;
+    --accent: #34a853;
+    --warning: #ea4335;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #dadce0;
+    --text: #202124;
+    --text-secondary: #5f6368;
+    --code-bg: #f1f3f4;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 0;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+    color: white; padding: 48px 24px; text-align: center;
+  }
+  .hero h1 { font-size: 2.2em; font-weight: 700; letter-spacing: 2px; }
+  .hero p { font-size: 1.1em; opacity: 0.9; margin-top: 8px; }
+  .hero .meta {
+    margin-top: 16px; font-size: 0.9em; opacity: 0.75;
+    display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+  }
+  .nav-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: white; border-bottom: 1px solid var(--border);
+    padding: 0 24px; overflow-x: auto; white-space: nowrap;
+    box-shadow: var(--shadow);
+  }
+  .nav-bar a {
+    display: inline-block; padding: 12px 16px;
+    color: var(--text-secondary); text-decoration: none;
+    font-size: 0.9em; border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav-bar a:hover, .nav-bar a.active {
+    color: var(--primary); border-bottom-color: var(--primary);
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+  .card {
+    background: var(--card); border-radius: 8px;
+    box-shadow: var(--shadow); border: 1px solid var(--border);
+    margin-bottom: 28px; overflow: hidden;
+  }
+  .card-header {
+    padding: 16px 24px; font-size: 1.15em; font-weight: 600;
+    background: var(--primary-light); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .card-body { padding: 20px 24px; }
+
+  h2.section-title {
+    font-size: 1.5em; margin: 40px 0 20px; padding-bottom: 8px;
+    border-bottom: 3px solid var(--primary);
+    display: flex; align-items: center; gap: 10px;
+  }
+  h2.section-title .num {
+    background: var(--primary); color: white; font-size: 0.7em;
+    width: 32px; height: 32px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  h3.sub-title {
+    font-size: 1.15em; margin: 24px 0 12px; color: var(--primary);
+  }
+
+  .diagram {
+    font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+    font-size: 0.82em; line-height: 1.45;
+    background: #1e1e1e; color: #d4d4d4;
+    padding: 16px 20px; border-radius: 6px;
+    overflow-x: auto; white-space: pre;
+    margin: 12px 0;
+  }
+  .diagram .hl { color: #4ec9b0; }
+  .diagram .hl2 { color: #c586c0; }
+  .diagram .hl3 { color: #dcdcaa; }
+  .diagram .hl4 { color: #ce9178; }
+  .diagram .comment { color: #6a9955; }
+
+  .flow-box {
+    background: var(--code-bg); border-left: 4px solid var(--primary);
+    padding: 12px 16px; margin: 8px 0; border-radius: 0 4px 4px 0;
+    font-size: 0.9em; overflow-x: auto;
+  }
+
+  table {
+    width: 100%; border-collapse: collapse; margin: 12px 0;
+    font-size: 0.92em;
+  }
+  th, td {
+    border: 1px solid var(--border); padding: 8px 12px; text-align: left;
+  }
+  th { background: var(--primary-light); font-weight: 600; }
+  tr:hover { background: #f8f9ff; }
+
+  .info-box {
+    padding: 12px 16px; border-radius: 6px; margin: 12px 0;
+    border-left: 4px solid;
+  }
+  .info-box.info { background: #e8f0fe; border-color: var(--primary); }
+  .info-box.warn { background: #fef7e0; border-color: #f9ab00; }
+
+  .role { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 0.85em; font-weight: 500; }
+  .role-admin { background: #e8f0fe; color: #1a73e8; }
+  .role-doctor { background: #e6f4ea; color: #137333; }
+  .role-patient { background: #fef7e0; color: #e37400; }
+
+  .role-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 16px 0; }
+  .role-grid .role-col { padding: 16px; border-radius: 6px; border: 1px solid var(--border); }
+  .role-grid .role-col h4 { margin-bottom: 8px; font-size: 0.95em; }
+  .role-grid .role-col ul { padding-left: 16px; font-size: 0.9em; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.5em; }
+    .role-grid { grid-template-columns: 1fr; }
+    .diagram { font-size: 0.7em; }
+  }
+
+  .check-list { list-style: none; padding: 0; }
+  .check-list li { padding: 4px 0 4px 24px; position: relative; }
+  .check-list li::before { content: "+"; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+  .tag-list { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+  .tag-list span {
+    background: var(--code-bg); padding: 2px 10px; border-radius: 12px;
+    font-size: 0.82em; color: var(--text-secondary);
+  }
+
+  .arch-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 12px 0; }
+  .arch-box { padding: 10px; border-radius: 6px; text-align: center; font-size: 0.82em; border: 1px solid var(--border); }
+  .arch-box.layer { background: var(--primary-light); color: var(--primary); font-weight: 600; border: none; }
+  .arch-box.core { background: #e6f4ea; }
+  .arch-box.biz { background: #fef7e0; }
+  .arch-box.util { background: #fce8e6; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>HIS 医院信息系统</h1>
+  <p>Hospital Information System — 三角色协同运转 · C99 控制台实现</p>
+  <div class="meta">
+    <span>语言: C99 (MSVC v143)</span>
+    <span>数据存储: text files (data/*.txt)</span>
+    <span>编译标志: /source-charset:utf-8</span>
+    <span>源文件: 13 个 .c + 2 个 .h</span>
+  </div>
+</div>
+
+<div class="nav-bar">
+  <a href="#overview">项目概述</a>
+  <a href="#arch">系统架构</a>
+  <a href="#data-model">数据模型</a>
+  <a href="#flow">运转流程</a>
+  <a href="#matrix">功能矩阵</a>
+  <a href="#security">安全校验</a>
+  <a href="#data-flow">数据联动</a>
+  <a href="#summary">完整周期</a>
+  <a href="#evolution">演变记录</a>
+</div>
+
+<div class="container">
+
+<!-- ==================== 一、项目概述 ==================== -->
+<h2 class="section-title" id="overview"><span class="num">1</span>项目概述</h2>
+
+<div class="card">
+  <div class="card-body">
+    <p>HIS (Hospital Information System) 是一个基于 <strong>C99 标准</strong>的控制台医院信息管理系统，支持 <span class="role role-admin">管理员</span> <span class="role role-doctor">医生</span> <span class="role role-patient">患者</span> 三种角色，覆盖医院核心业务流程。所有数据在内存中以通用单向链表管理，程序启动时从文本文件加载，运行中实时保存。</p>
+
+    <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px;">
+      <div style="flex:1; min-width:200px; padding:16px; background:var(--code-bg); border-radius:6px; text-align:center;">
+        <div style="font-size:2em; font-weight:700; color:var(--primary);">8</div>
+        <div style="font-size:0.85em; color:var(--text-secondary);">全局链表</div>
+      </div>
+      <div style="flex:1; min-width:200px; padding:16px; background:var(--code-bg); border-radius:6px; text-align:center;">
+        <div style="font-size:2em; font-weight:700; color:var(--accent);">8</div>
+        <div style="font-size:0.85em; color:var(--text-secondary);">数据文件</div>
+      </div>
+      <div style="flex:1; min-width:200px; padding:16px; background:var(--code-bg); border-radius:6px; text-align:center;">
+        <div style="font-size:2em; font-weight:700; color:var(--warning);">13</div>
+        <div style="font-size:0.85em; color:var(--text-secondary);">源文件（已按职责拆分）</div>
+      </div>
+      <div style="flex:1; min-width:200px; padding:16px; background:var(--code-bg); border-radius:6px; text-align:center;">
+        <div style="font-size:2em; font-weight:700; color:#c586c0;">~5470</div>
+        <div style="font-size:0.85em; color:var(--text-secondary);">总代码行数</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 二、系统架构 ==================== -->
+<h2 class="section-title" id="arch"><span class="num">2</span>系统架构</h2>
+
+<div class="card">
+  <div class="card-header">模块分层与文件一览</div>
+  <div class="card-body">
+    <div class="diagram">                      HIS 系统文件依赖关系
+
+    his_config.h  (配置常量/枚举/路径)  ──┐
+                                         ├── his.h (结构体/函数声明/extern变量)
+    his.h         (全局头文件)        ────┘
+                      │
+        ┌─────────────┼─────────────────┬──────────────────┬─────────────┐
+        ▼             ▼                 ▼                  ▼             ▼
+  his_main.c    (各业务模块)      his_tool.c        his_link.c    his_config.h
+  主控/菜单      │    │    │      工具函数         通用链表        (已包含)
+  角色登录       │    │    │      输入校验             │
+        │       │    │    │      文件I/O     8个 LinkList 实例
+        ▼       ▼    ▼    ▼      密码混淆        (全局变量)
+  ┌─────────────────────────────────────┐
+  │       业务层 (10 个文件)             │
+  │                                     │
+  │  dept_bed.c    doctor.c    schedule │
+  │  科室/床位     医生管理     排班管理  │
+  │                                     │
+  │  drug.c        admin_tools.c         │
+  │  药品/发药     统计/备份             │
+  │                                     │
+  │  patient.c     record.c             │
+  │  患者/充值     医疗记录/医生工作站    │
+  │                                     │
+  │  registration.c                     │
+  │  挂号/预约                           │
+  └─────────────────────────────────────┘</div>
+
+    <table>
+      <tr><th>类型</th><th>文件</th><th>行数</th><th>职责</th></tr>
+      <tr><td rowspan="2">配置</td><td>his_config.h</td><td>~90</td><td>长度常量、枚举、文件路径、业务默认值</td></tr>
+      <tr><td>his.h</td><td>~230</td><td>8 个业务结构体、函数声明、extern 全局变量</td></tr>
+      <tr><td rowspan="2">基础</td><td>his_link.c</td><td>~110</td><td>通用单向链表（Init/Insert/Delete/Find/Traverse/Free）</td></tr>
+      <tr><td>his_tool.c</td><td>~190</td><td>输入校验、ID 生成、文件 I/O、密码混淆</td></tr>
+      <tr><td>主控</td><td>his_main.c</td><td>~500</td><td>程序入口、三种角色登录认证、主菜单路由</td></tr>
+      <tr><td rowspan="10">业务</td><td>dept_bed.c</td><td>~530</td><td>科室管理 + 床位管理（CRUD + 统计）</td></tr>
+      <tr><td>doctor.c</td><td>~390</td><td>医生管理（CRUD + 账号密码 + 持久化）</td></tr>
+      <tr><td>schedule.c</td><td>~430</td><td>排班管理（CRUD + 持久化）</td></tr>
+      <tr><td>drug.c</td><td>~550</td><td>药品管理（CRUD + 库存 + 门诊发药）</td></tr>
+      <tr><td>admin_tools.c</td><td>~220</td><td>全局统计查询 + 管理员报表 + 数据备份</td></tr>
+      <tr><td>patient.c</td><td>~630</td><td>患者管理（CRUD + 充值 + 只读查看）</td></tr>
+      <tr><td>record.c</td><td>~520</td><td>医疗记录 CRUD + 医生工作站</td></tr>
+      <tr><td>registration.c</td><td>~500</td><td>普通挂号 + 预约挂号</td></tr>
+      <tr><td colspan="4" style="font-size:0.85em; color:var(--text-secondary);">以上 10 个业务文件通过 8 个全局 extern 链表共享数据</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">跨模块函数调用关系</div>
+  <div class="card-body">
+    <div class="diagram">his_main.c (主控)
+  ├── adminMenu()
+  │   ├── patientModule()       ──→ patient.c
+  │   │     ├── inputAndViewRecords()  ──→ record.c
+  │   │     ├── inputAndAddRecord()    ──→ record.c
+  │   │     ├── inputAndModifyRecord() ──→ record.c
+  │   │     └── inputAndDeleteRecord() ──→ record.c
+  │   ├── dept_bedModule()      ──→ dept_bed.c
+  │   │     ├── doctorSubMenu()       ──→ doctor.c
+  │   │     └── scheduleSubMenu()     ──→ schedule.c
+  │   └── drugModule()           ──→ drug.c
+  │         ├── globalStatsSubMenu()  ──→ admin_tools.c
+  │         └── backupAllData()       ──→ admin_tools.c
+  │
+  ├── doctorMenu()
+  │   ├── queryPatientByDoctor() ──→ record.c
+  │   ├── medicalRecordModule()  ──→ record.c
+  │   └── queryMyAppointment()   ──→ record.c
+  │
+  └── patientMenu()
+      ├── normalRegistration()        ──→ registration.c
+      ├── appointmentRegistration()   ──→ registration.c
+      ├── patientRecharge()           ──→ patient.c
+      ├── viewMyRegistration()        ──→ registration.c
+      └── cancelMyRegistration()      ──→ registration.c</div>
+
+    <div class="info-box info">
+      <strong>设计原则：</strong>每个模块只负责自己数据的写入，其它模块通过 his.h 中声明的 extern 函数查询或引用。所有跨模块调用接口在 his.h 中有统一声明。
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 三、数据模型 ==================== -->
+<h2 class="section-title" id="data-model"><span class="num">3</span>数据模型与关联关系</h2>
+
+<div class="card">
+  <div class="card-header">实体关系与全局链表数据总线</div>
+  <div class="card-body">
+    <div class="diagram">                     8 个全局链表 (extern 跨模块共享)
+
+    patient_list  ───  Patient     (模块: patient.c)
+    doctor_list   ───  Doctor      (模块: doctor.c)
+    dept_list     ───  Department  (模块: dept_bed.c)
+    bed_list      ───  Bed         (模块: dept_bed.c)
+    drug_list     ───  Drug        (模块: drug.c)
+    record_list   ───  MedicalRecord (模块: record.c)
+    schedule_list ───  DoctorSchedule (模块: schedule.c)
+    appointment_  ───  Appointment (模块: registration.c)
+
+    ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
+    │ Department  │─────│   Doctor     │     │     Bed     │
+    │ id (K*****) │     │ dept_id ─────┘     │ dept_id ────┘
+    │ name        │     │ name / account     │ room_type   │
+    │ doctor_cnt  │     │ password(混淆)      │ status      │
+    └─────────────┘     │ max_register       │ patient_id  │
+                        └───────────────────┘ └──────┬──────┘
+    ┌───────────────────┐    ┌──────────────┐        │
+    │  Patient          │    │   Drug       │        │
+    │ id (P*****)       │    │ id (M*****)  │        │
+    │ doctor_id ────────┼──┐ │ general_name │        │
+    │ dept_id ──────────┼──┤ │ price/stock  │        │
+    │ balance           │  │ │ warning_thr  │        │
+    │ register_status   │  │ │ dept_id      │        │
+    │ is_inpatient      │  │ └──────────────┘        │
+    │ bed_id ───────────┼──┼─────────────────────────┘
+    └────────┬──────────┘  │
+             │             │
+    ┌────────▼──────────┐  │  ┌───────────────────┐
+    │  MedicalRecord    │  │  │ DoctorSchedule    │
+    │ patient_id ───────┼──┘  │ doctor_id         │
+    │ doctor_id         │     │ dept_id           │
+    │ type (枚举)       │     │ date / time_slot  │
+    │ cost / detail     │     │ max / current     │
+    │ create_time       │     │ is_available      │
+    └───────────────────┘     └────────┬──────────┘
+                                       │
+                              ┌────────▼──────────┐
+                              │  Appointment       │
+                              │ schedule_id ───────┘
+                              │ patient_id
+                              │ status / cost
+                              │ create_time
+                              └───────────────────┘</div>
+
+    <h3 class="sub-title">ID 生成规则</h3>
+    <div class="flow-box">
+      <code>[前缀][年2位][月2位][日2位][序号3位]</code> 例如 <code>P260511001</code> = 患者 2026-05-11 第1号
+    </div>
+    <div class="tag-list" style="margin-top:8px;">
+      <span>P = 患者</span><span>D = 医生</span><span>K = 科室</span>
+      <span>B = 床位</span><span>M = 药品</span><span>R = 记录</span>
+      <span>A = 预约</span><span>S = 排班</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 四、运转流程 ==================== -->
+<h2 class="section-title" id="flow"><span class="num">4</span>三角色运转流程</h2>
+
+<h3 class="sub-title">4.1 系统初始化 <span class="role role-admin">管理员</span></h3>
+
+<div class="card">
+  <div class="card-header">程序启动到系统就绪</div>
+  <div class="card-body">
+    <div class="diagram">main()
+  └─ initGlobalLists()  ── malloc 8 个空链表
+  └─ loadAllHisData()   ── 从 data/*.txt 加载全部数据
+       ├─ loadDeptData()       data/dept.txt
+       ├─ loadDoctorData()     data/doctor.txt
+       ├─ loadBedData()        data/bed.txt
+       ├─ loadPatientData()    data/patient.txt
+       ├─ loadDrugData()       data/drug.txt
+       ├─ loadRecordData()     data/record.txt
+       ├─ loadScheduleData()   data/schedule.txt
+       └─ loadAppointmentData() data/appointment.txt
+  └─ 主菜单循环
+       ├─ 1. 管理员登录   ← 首次启动选此
+       ├─ 2. 医生登录
+       ├─ 3. 患者操作
+       └─ 0. 退出系统
+
+  ★ 首次启动: 所有 data/*.txt 不存在 → 全局链表全空 → 管理员先初始化</div>
+
+    <div class="info-box info">
+      <strong>管理员登录：</strong>账号 <code>admin</code>，默认密码 <code>123456</code>（支持运行时修改，持久化到 <code>data/admin.dat</code>），连续 5 次失败锁定。
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">初始化步骤：建科室 → 建医生 → 建床位 → 建药品</div>
+  <div class="card-body">
+    <div class="diagram"><span class="hl">第一步：添加科室</span>
+  dept_bedModule → deptSubMenu → addDept()
+    GenerateID → "K260511001" | 名称: 内科 | 保存至 data/dept.txt
+
+  <span class="hl">第二步：添加医生</span>
+  doctorSubMenu → addDoctor()
+    选科室 → 输入姓名/特长/账号/密码 →
+    账号唯一性检查 → GenerateID "D260511001" →
+    保存至 data/doctor.txt, dept->doctor_count++
+
+  <span class="hl">第三步：添加床位</span>
+  bedSubMenu → addBed()
+    选科室 → 选病房类型(普通/双人/VIP) →
+    GenerateID "B260511001" → status=BED_FREE
+
+  <span class="hl">第四步：添加药品</span>
+  drugModule → drugInfoSubMenu → addDrug()
+    选科室 → 输入通用名/单价/库存/预警阈值 →
+    GenerateID "M260511001" → 保存
+
+  <span class="comment">完成后: 8 个链表各有数据, 系统就绪</span></div>
+  </div>
+</div>
+
+<h3 class="sub-title">4.2 日常运转 <span class="role role-patient"></span> <span class="role role-doctor"></span> <span class="role role-admin"></span></h3>
+
+<div class="card">
+  <div class="card-header">场景一：患者首次就诊（普通挂号）</div>
+  <div class="card-body">
+    <div class="diagram">张三首次来医院，挂内科张明医生的号
+
+  <span class="hl4">① 患者菜单 → 1. 普通挂号</span>
+  normalRegistration()
+    └─ inputAndFindOrCreatePatient()
+         ├─ 输入手机号 13800138000 → 未找到
+         ├─ 创建新患者: P260511001 | 张三 | 30岁 | 余额 0.00
+         └─ savePatientData()
+
+  <span class="hl4">② 余额不足！先充值</span>
+  患者菜单 → 6. 自助充值
+    └─ patientRecharge(): 充值 200 元 → 余额 200.00
+
+  <span class="hl4">③ 再次挂号</span>
+  手机号匹配 → 欢迎回来，张三！
+  selectDeptAndDoctor() → 科室: 内科 → 医生: 张明 → 号源充足(0/30)
+
+  <span class="hl4">④ 确认费用 → 执行挂号</span>
+  挂号费 10.00 | 医保 70% | 实付 3.00 | 余额 200.00 >= 3.00
+    └─ 扣费: 200.00 → 197.00
+    └─ 状态: register_status = REG_STATUS_PENDING (待就诊)
+    └─ 张明.current_register: 0 → 1
+    └─ 创建挂号记录 R260511001 | 费用: 3.00
+    └─ savePatientData() + saveDoctorData() + saveRecordData()
+
+  <span class="hl">[成功] 张三 | 支付 3.00 | 余额 197.00 | 待就诊</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">场景二：医生接诊</div>
+  <div class="card-body">
+    <div class="diagram">医生"张明"登录 → 写诊断 → 改状态
+
+  <span class="hl4">① 医生登录</span>
+  doctorLogin()
+    └─ 账号: zhangming | 密码: 123456
+    └─ passwordObfuscate 比对通过
+    └─ 设置 g_current_doctor_id / g_current_doctor_name
+
+  <span class="hl4">② 查看患者</span>
+  医生菜单 → 1. 查看我的患者
+    └─ 当前挂号: P260511001 张三 | 待就诊
+
+  <span class="hl4">③ 写诊断记录</span>
+  医生菜单 → 2. 管理医疗记录 → 2. 新增诊断记录
+    └─ 输入患者ID: P260511001
+    └─ 三重校验: 患者存在 → 已挂号 → 挂的是自己的号
+    └─ 诊断: "患者血压偏高...诊断为轻度高血压"
+    └─ 费用: 50.00
+    └─ 创建记录 R260511002 | saveRecordData()
+
+  <span class="hl4">④ 修改就诊状态</span>
+  医疗记录管理 → 4. 修改就诊状态
+    └─ 待就诊 → 已完成 (状态流转硬约束: PENDING → DONE)
+    └─ savePatientData()
+
+  <span class="hl">[完成] 张三诊断完毕 | 就诊状态: 已完成</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">场景三：门诊发药</div>
+  <div class="card-body">
+    <div class="diagram">药房管理员为张三发药（阿莫西林胶囊 x2）
+
+  drugModule() → 3. 门诊发药
+  issuePrescription()
+
+  <span class="hl4">① 校验患者 → 选药品 → 输入数量</span>
+    患者ID: P260511001 → 找到张三
+    药品ID: M260511001 → 阿莫西林 | 库存 500
+    数量: 2 | 库存 500 >= 2
+    hasDuplicatePrescription() → 无重复处方
+
+  <span class="hl4">② 校验医生 → 计算费用</span>
+    医生ID: D260511001 → 校验: 患者挂的张明的号
+    总费用: 12.50 x 2 = 25.00
+    医保: 25.00 x 70% = 17.50
+    自付: 25.00 - 17.50 = 7.50 | 余额 197.00 >= 7.50
+
+  <span class="hl4">③ 执行发药</span>
+    扣库存: 500 → 498
+    扣余额: 197.00 → 189.50
+    创建处方记录 R260511003 | 费用: 25.00
+    save顺序: 记录 → 库存 → 余额 (记录作为审计证据优先)
+
+  <span class="hl">[成功] 阿莫西林 x2 | 自付 7.50 | 余额 189.50 | 库存 498</span></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">场景四：预约挂号 + 排班管理</div>
+  <div class="card-body">
+    <div class="diagram">患者李四预约皮肤科林泽宇医生 (2026-05-12 上午)
+
+  <span class="comment">── 前置: 管理员设置排班 ──</span>
+  管理员 → 排班管理 → 1. 新增排班
+  addSchedule()
+    └─ 选科室: 皮肤科 → selectDoctorByDept() → 选林泽宇
+    └─ 日期: 2026-05-12 | 时段: 上午
+    └─ 号源数: 30 (受医生 max_register 上限约束)
+    └─ GenerateID "S260511001" | saveScheduleData()
+
+  <span class="comment">── 患者预约 ──</span>
+  患者菜单 → 2. 预约挂号
+  appointmentRegistration()
+    └─ 创建/识别患者: P260511002 | 李四 | 充值 100 元
+    └─ 选科室: 皮肤科 → 选医生: 林泽宇
+    └─ 选排班: 2026-05-12 上午 (号源 0/30)
+    └─ 预约费 20.00 | 医保 70% | 实付 6.00 | 余额 100 → 94
+    └─ 创建预约 A260511001 | status="已预约"
+    └─ saveAppointmentData() + saveScheduleData() + savePatientData()
+
+  <span class="comment">── 取消预约 ──</span>
+  患者菜单 → 4. 取消我的挂号/预约 → 2. 取消指定预约
+    └─ PIN 验证 → 预约 status = "已取消"
+    └─ 排班号源恢复: current_patients: 1 → 0
+    └─ 退费: balance += cost | 注意: 已产生诊断/处方时联动提醒</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">场景五：患者查看记录与自助操作</div>
+  <div class="card-body">
+    <div class="diagram">患者菜单 → 5. 查看我的医疗记录
+    └─ 输入患者ID: P260511001
+    └─ verifyPatientPin: 输入 6 位访问密码 (3 次尝试)
+    └─ 个人信息: 张三 | 余额 189.50
+    └─ 医疗记录:
+         R260511001 | 挂号   | 3.00  | 普通挂号
+         R260511002 | 诊断   | 50.00 | 诊断为轻度高血压
+         R260511003 | 处方   | 25.00 | 阿莫西林 x2, 医保报销17.50元
+
+  患者菜单 → 6. 自助充值
+    └─ 输入患者ID → PIN 验证
+    └─ 单次 100000 上限, 总额 500000 上限</div>
+  </div>
+</div>
+
+<!-- ==================== 五、功能矩阵 ==================== -->
+<h2 class="section-title" id="matrix"><span class="num">5</span>三种视角的功能矩阵</h2>
+
+<div class="card">
+  <div class="card-body">
+    <table>
+      <tr><th>功能</th><th><span class="role role-admin">管理员</span></th><th><span class="role role-doctor">医生</span></th><th><span class="role role-patient">患者</span></th></tr>
+      <tr><td>系统初始化</td><td>添加科室/医生/床位/药品</td><td>—</td><td>—</td></tr>
+      <tr><td>患者管理</td><td>增删改查患者</td><td>查看挂自己号的患者</td><td>查看自己的信息</td></tr>
+      <tr><td>挂号</td><td>—</td><td>—</td><td>普通挂号 + 预约挂号</td></tr>
+      <tr><td>医疗记录</td><td>管理所有记录</td><td>写诊断/处方/改状态</td><td>只读查看</td></tr>
+      <tr><td>发药</td><td>门诊发药（含医保结算）</td><td>—</td><td>—</td></tr>
+      <tr><td>药品库存</td><td>入库/出库/预警</td><td>—</td><td>—</td></tr>
+      <tr><td>床位管理</td><td>住院/出院办理</td><td>—</td><td>—</td></tr>
+      <tr><td>排班管理</td><td>增删改查排班</td><td>查看我的排班</td><td>—</td></tr>
+      <tr><td>充值</td><td>—</td><td>—</td><td>自助充值（PIN 保护）</td></tr>
+      <tr><td>取消挂号</td><td>—</td><td>—</td><td>取消挂号/预约（退费）</td></tr>
+      <tr><td>统计报表</td><td>全院统计（含文件导出）</td><td>—</td><td>费用明细</td></tr>
+      <tr><td>数据备份</td><td>一键备份所有模块</td><td>—</td><td>—</td></tr>
+      <tr><td>账号管理</td><td>添加/修改医生账号</td><td>修改自身密码</td><td>—</td></tr>
+      <tr><td>个人信息</td><td>—</td><td>查看资料 + 修改密码</td><td>PIN 保护查看</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ==================== 六、安全校验 ==================== -->
+<h2 class="section-title" id="security"><span class="num">6</span>安全与校验体系</h2>
+
+<div class="card">
+  <div class="card-body">
+    <table>
+      <tr><th>防护类型</th><th>实现方式</th></tr>
+      <tr><td>缓冲区溢出</td><td>所有 fgets 后检查 strchr('\n')，超长则 ClearInputBuffer()</td></tr>
+      <tr><td>GBK 字符截断</td><td>截断后若末尾字节 ≥0x81，自动移除不完整字</td></tr>
+      <tr><td>分隔符注入</td><td>ValidateNoPipe() 禁止输入中的 | 符号</td></tr>
+      <tr><td>密码保护</td><td>nibble-swap 混淆存储（自逆函数，非明文）</td></tr>
+      <tr><td>患者隐私</td><td>可选 6 位 PIN 码保护查看，3 次错误锁定</td></tr>
+      <tr><td>登录锁定</td><td>同一角色 5 次失败后锁定（static 计数器，重启恢复）</td></tr>
+      <tr><td>数据完整性</td><td>写 tmp 文件 + rename 原子操作</td></tr>
+      <tr><td>身份证校验</td><td>18 位加权校验和 (GB 11643-1999) + 全院唯一 + 年龄一致性</td></tr>
+      <tr><td>sscanf 宽度限定</td><td>parse 函数 %19[^|] 等宽度限制防溢出</td></tr>
+      <tr><td>枚举安全转型</td><td>parseBedLine 改中间 int 变量，避免 (int*) 强转枚举指针</td></tr>
+      <tr><td>菜单输入安全</td><td>getValidChoice(): 全行 fgets + 全数字校验 + 范围检查</td></tr>
+      <tr><td>重复发药防重</td><td>hasDuplicatePrescription() 检查已有处方</td></tr>
+      <tr><td>发药事务安全</td><td>保存顺序: 记录(证据) → 库存 → 余额</td></tr>
+      <tr><td>库存预警</td><td>stock < warning_threshold 时自动提示</td></tr>
+      <tr><td>排班删除保护</td><td>deleteSchedule 检查有无未取消的预约记录</td></tr>
+      <tr><td>删除操作保护</td><td>所有 deleteXxx 输入 0 视为取消</td></tr>
+    </table>
+
+    <div class="diagram" style="margin-top:16px;"><span class="comment">密码混淆 (Nibble-Swap) 原理：</span>
+  "abc123" → 每个字节高4位 与 低4位 交换
+  a(0x61) [0110 0001] → [0001 0110] = 0x16
+  自逆性: f(f(x)) = x  → 同一函数既是加密也是解密</div>
+  </div>
+</div>
+
+<!-- ==================== 七、数据联动 ==================== -->
+<h2 class="section-title" id="data-flow"><span class="num">7</span>核心业务数据联动</h2>
+
+<div class="card">
+  <div class="card-body">
+    <div class="role-grid">
+      <div class="role-col" style="border-color:var(--primary);">
+        <h4 style="color:var(--primary);">挂号流程</h4>
+        <div class="flow-box" style="font-size:0.85em; border-left-color:var(--primary);">涉及: patient + doctor + record</div>
+        <ul>
+          <li>patient: balance -= 3.00, doctor_id=, status=PENDING</li>
+          <li>doctor: current_register += 1</li>
+          <li>record: 新增 RECORD_REGISTER (3.00元)</li>
+        </ul>
+      </div>
+      <div class="role-col" style="border-color:var(--accent);">
+        <h4 style="color:var(--accent);">发药流程</h4>
+        <div class="flow-box" style="font-size:0.85em; border-left-color:var(--accent);">涉及: drug + patient + record</div>
+        <ul>
+          <li>drug: stock -= quantity</li>
+          <li>patient: balance -= pay, record_count++</li>
+          <li>record: 新增 RECORD_PRESCR</li>
+        </ul>
+      </div>
+      <div class="role-col" style="border-color:#e37400;">
+        <h4 style="color:#e37400;">预约流程</h4>
+        <div class="flow-box" style="font-size:0.85em; border-left-color:#e37400;">涉及: patient + schedule + appointment</div>
+        <ul>
+          <li>patient: balance -= pay</li>
+          <li>schedule: current_patients += 1</li>
+          <li>appointment: 新增 status="已预约"</li>
+        </ul>
+      </div>
+    </div>
+    <div class="role-grid" style="margin-top:0;">
+      <div class="role-col" style="border-color:#c586c0;">
+        <h4 style="color:#c586c0;">住院流程</h4>
+        <div class="flow-box" style="font-size:0.85em; border-left-color:#c586c0;">涉及: bed + patient</div>
+        <ul>
+          <li>bed: status=OCCUPIED, patient_id=, admit_time=</li>
+          <li>patient: is_inpatient=IN, bed_id=</li>
+        </ul>
+      </div>
+      <div class="role-col" style="border-color:#ea4335;">
+        <h4 style="color:#ea4335;">取消预约</h4>
+        <div class="flow-box" style="font-size:0.85em; border-left-color:#ea4335;">涉及: appointment + schedule + patient</div>
+        <ul>
+          <li>appointment: status="已取消"</li>
+          <li>schedule: current_patients-- (恢复号源)</li>
+          <li>patient: balance += cost (退费)</li>
+        </ul>
+      </div>
+      <div class="role-col" style="border-color:#1a73e8;">
+        <h4 style="color:#1a73e8;">删除医生</h4>
+        <div class="flow-box" style="font-size:0.85em; border-left-color:#1a73e8;">涉及: doctor + dept + schedule + patient</div>
+        <ul>
+          <li>schedule: 检查该医生是否有排班</li>
+          <li>patient: 检查是否有患者挂号</li>
+          <li>dept: doctor_count--</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 八、完整周期 ==================== -->
+<h2 class="section-title" id="summary"><span class="num">8</span>完整运转周期</h2>
+
+<div class="card">
+  <div class="card-body">
+    <div class="diagram">                    HIS 系统完整运转周期
+
+  <span class="hl">初始化阶段</span> (<span class="hl4">管理员</span>)
+  ┌──────────────────────────────────────────────┐
+  │ 登录 → 建科室 → 建医生 → 建床位 → 建药品 → 就绪 │
+  └──────────────────────────────────────────────┘
+                        │
+                        ▼
+  <span class="hl3">日常运转</span> (<span class="comment">循环</span>)
+  ┌──────────────────────────────────────────────┐
+  │ 患者到院 → 识别/创建 → 挂号 → 医生接诊        │
+  │ → 诊断/开药 → 发药 → 完成                     │
+  │    ↑                    (可预约)             │
+  │    └────── 复诊/下次就诊 ─────────────────┘   │
+  └──────────────────────────────────────────────┘
+                        │
+                        ▼
+  <span class="hl2">管理维护</span> (<span class="comment">贯穿全周期</span>)
+  ┌──────────────────────────────────────────────┐
+  │ 管理员: 入库/出库/预警 | 住院/出院 | 统计备份  │
+  │ 医生:   查看预约/写诊断/开处方/改状态/查排班   │
+  │ 患者:   充值/查看记录/取消挂号                │
+  └──────────────────────────────────────────────┘
+                        │
+                        ▼
+  <span class="hl4">退出系统</span>
+  ┌──────────────────────────────────────────────┐
+  │ 选择 0 → saveAllHisData() → freeGlobalLists()│
+  └──────────────────────────────────────────────┘</div>
+  </div>
+</div>
+
+<!-- ==================== 九、项目演变 ==================== -->
+<h2 class="section-title" id="evolution"><span class="num">9</span>项目演变记录</h2>
+
+<div class="card">
+  <div class="card-body">
+    <table>
+      <tr><th>阶段</th><th>操作</th><th>效果</th></tr>
+      <tr><td rowspan="2">文件拆分</td><td>dept_bed.c(1340行) → dept_bed.c + doctor.c + schedule.c</td><td>每个文件职责单一，约 400~530 行</td></tr>
+      <tr><td>drug.c(920行) → drug.c + admin_tools.c</td><td>药品模块精简，统计备份独立</td></tr>
+      <tr><td rowspan="3">代码清理</td><td>删除 UserRole 枚举、DEFAULT_BALANCE、DEFAULT_ROOM_TYPE</td><td>减少未使用配置</td></tr>
+      <tr><td>删除 GetListLength()、ValidateID()</td><td>消除死代码</td></tr>
+      <tr><td>4 处手写 loadXxxData → LoadDataFromFile()</td><td>减少约 50 行重复代码</td></tr>
+      <tr><td rowspan="3">编码修复</td><td>/utf-8 → /source-charset:utf-8</td><td>解决终端中文乱码</td></tr>
+      <tr><td>his_link.c 乱码注释重写为中文</td><td>C4828 编码警告消失</td></tr>
+      <tr><td>文件头添加模块说明</td><td>每个文件开头有职责概述</td></tr>
+      <tr><td rowspan="4">安全增强</td><td>inputDrugInfo 三名称字段 while 循环校验</td><td>分隔符注入不再静默清空</td></tr>
+      <tr><td>modifySchedule fgets → readString</td><td>统一输入方式</td></tr>
+      <tr><td>addSchedule 校验号源 ≤ 医生 max_register</td><td>新增业务约束</td></tr>
+      <tr><td>所有 deleteXxx 输入 0 视为取消</td><td>改善用户体验</td></tr>
+    </table>
+
+    <div class="info-box info" style="margin-top:16px;">
+      <strong>当前项目状态：</strong>13 个源文件 / ~5470 行 C 代码 / 8 个全局链表 / 8 个数据文件 / 3 种角色 / 10 个业务模块。已从最初的 4 个大文件（~4840 行）重构为职责清晰的模块化结构。
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div style="text-align:center; padding:32px; color:var(--text-secondary); font-size:0.85em; border-top:1px solid var(--border);">
+  HIS 医院信息系统 — 综合说明文档
+</div>
+
+</body>
+</html>

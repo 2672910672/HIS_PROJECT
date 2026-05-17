@@ -1,0 +1,3113 @@
+﻿<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+  <meta charset="utf-8" />
+  <title>HIS医院信息系统综合报告</title>
+  <style>
+body { font-family: "等线", "Microsoft YaHei", sans-serif; font-size: 11pt; line-height: 1.8; margin: 50px 60px; color: #333; }
+h2 { font-size: 16pt; color: #1a73e8; border-bottom: 2px solid #1a73e8; padding-bottom: 4px; margin-top: 28px; }
+h3 { font-size: 13pt; color: #333; margin-top: 18px; margin-bottom: 6px; }
+h4 { font-size: 11pt; color: #1a73e8; margin-top: 12px; margin-bottom: 4px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 10pt; }
+td, th { border: 1px solid #999; padding: 6px 10px; }
+th { background-color: #e8f0fe; }
+code { font-family: "Consolas", monospace; font-size: 9.5pt; background: #f0f0f0; padding: 1px 5px; border-radius: 2px; }
+pre { background: #f5f5f5; padding: 10px 14px; border-left: 3px solid #1a73e8; margin: 10px 0; line-height: 1.4; }
+pre code { background: none; padding: 0; }
+blockquote { background: #f8f9fa; padding: 10px 16px; border-left: 3px solid #1a73e8; margin: 10px 0; color: #555; }
+hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
+img { max-width: 90%; display: block; margin: 10px auto; }
+.pb { page-break-before: always; }
+.cover { text-align: center; margin-top: 80px; margin-bottom: 120px; }
+.cover h1 { font-size: 28pt; color: #1a73e8; margin-bottom: 8px; }
+.cover .sub { font-size: 14pt; color: #555; margin-bottom: 40px; }
+.cover .info { font-size: 11pt; color: #888; }
+.cover .info p { text-align: center; margin: 4px 0; }
+</style>
+<style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<div class="cover">
+<h1>HIS 医院信息系统</h1>
+<p class="sub">《程序设计基础课程设计》总结报告</p>
+<div class="info">
+<p>学号：55250127 冯辉 / 55250129 聂溥成 / 55250120 李腾飞 / 55250130 赵子睿</p>
+<p>班级：01 班</p>
+</div>
+</div>
+<div style="page-break-before:always;"></div>
+<h1
+id="级程序设计基础课程设计总结报告">2025级《程序设计基础课程设计》总结报告</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>学号</th>
+<th>姓名</th>
+<th>性别</th>
+<th>班级</th>
+<th>具体任务分工</th>
+<th>所占比例</th>
+<th>成绩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>55250127</td>
+<td>冯辉</td>
+<td>男</td>
+<td>01</td>
+<td><strong>项目组长，全面统筹</strong><br>·
+项目架构设计、编码规范制定与进度管理<br>· 主导药品管理模块（Drug CRUD /
+库存预警 / 出入库）<br>·
+主导门诊发药流程（<code>issuePrescription</code> 六项校验 / 分精度计费 /
+重复处方检测 / 保存顺序优化）<br>· 主导 <code>drug.c</code>
+全部功能开发与持久化<br>·
+参与科室与床位管理模块（<code>dept_bed.c</code>）功能开发<br>·
+负责系统集成测试、边界测试、容量测试<br>·
+撰写五个专题分析报告及课程总结报告</td>
+<td>35%</td>
+<td></td>
+</tr>
+<tr>
+<td>55250129</td>
+<td>聂溥成</td>
+<td>男</td>
+<td>01</td>
+<td><strong>系统架构师，基础层搭建</strong><br>· 设计 <code>his.h</code>
+全局头文件（8 个业务结构体 / 全部函数声明 / HIS_STRNCPY 宏）<br>· 设计
+<code>his_config.h</code>（长度常量 / 枚举 / 文件路径 / ID 前缀 /
+业务默认值）<br>· 实现 <code>his_link.c</code>
+泛型单向链表（<code>void*</code> 深拷贝 / O(n) 查找 /
+通用遍历打印）<br>· 实现 <code>his_tool.c</code> 工具链（输入校验 /
+原子写入 write-then-rename / 密码 nibble-swap / 身份证 GB11643
+加权校验）<br>·
+参与科室与床位管理模块（<code>dept_bed.c</code>）功能开发<br>· 设计
+<code>his_main.c</code> 三角色登录认证与会话变量管理</td>
+<td>25%</td>
+<td></td>
+</tr>
+<tr>
+<td>55250120</td>
+<td>李腾飞</td>
+<td>男</td>
+<td>01</td>
+<td><strong>患者与医疗记录子系统</strong><br>·
+患者模块全功能（<code>patient.c</code>：CRUD /
+姓名/手机号/身份证联动校验 / PIN 保护 / 自助充值上限控制）<br>·
+医疗记录子系统（<code>record.c</code>：诊断/处方 CRUD /
+医生端三重权限校验 / 就诊状态硬约束流转 / 取消挂号的精确退费）<br>·
+患者自助服务（<code>patientSelfService</code>：登录 / 挂号 / 预约 /
+查看记录 / PIN 验证链路）<br>·
+参与科室与床位管理模块（<code>dept_bed.c</code>）功能开发<br>·
+编写患者模块、诊断模块、边界场景全部测试用例</td>
+<td>25%</td>
+<td></td>
+</tr>
+<tr>
+<td>55250130</td>
+<td>赵子睿</td>
+<td>男</td>
+<td>01</td>
+<td><strong>业务模块辅助开发</strong><br>·
+参与科室管理模块（<code>dept_bed.c</code>：科室 CRUD / 床位状态机 /
+住院出院）功能开发<br>·
+参与医生信息管理模块（<code>doctor.c</code>：医生 CRUD /
+账号密码管理）功能开发<br>·
+协助排班模块（<code>schedule.c</code>）功能测试与 bug 反馈<br>·
+协助完成测试报告中的数据完整性验证章节</td>
+<td>15%</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="目录">目录</h2>
+<p>一、项目概述</p>
+<p>二、系统架构</p>
+<p>三、数据模型</p>
+<p>四、三角色运转流程</p>
+<p>五、核心业务数据联动</p>
+<p>六、安全与校验机制</p>
+<p>七、问题解决策略</p>
+<p>八、特色代码设计</p>
+<p>九、相关测试数据</p>
+<p>十、流程图演示</p>
+<p>十一、相关界面展示</p>
+<p>十四、项目不足与改进</p>
+<p>后记</p>
+<h2 id="一项目概述">一、项目概述</h2>
+<h3 id="系统概述">1、系统概述</h3>
+<p>HIS医院信息系统核心功能基于 C99 标准（MSVC v143 编译器）
+实现，界面基于 Windows 控制台 实现；数据在内存中以 通用单向链表（void
+泛型）* 管理，通过 文本文件（|分隔字段） 持久化存储，采用
+write-then-rename 原子写入 机制保证数据一致性。</p>
+<hr />
+<h3 id="模块划分">2.模块划分</h3>
+<p>系统分为 基础层 与 业务层 两个主要模块，基础层
+提供通用的数据结构、工具函数和全局配置，业务层 按医院业务领域拆分为 10
+个独立模块，每个模块负责特定的业务实体管理。</p>
+<figure>
+<img src="HIS系统报告.assets/66a0332b561f3d3f6c072a1dd1a8261a.jpg"
+alt="66a0332b561f3d3f6c072a1dd1a8261a" />
+<figcaption
+aria-hidden="true">66a0332b561f3d3f6c072a1dd1a8261a</figcaption>
+</figure>
+<h2 id="二系统架构">二、系统架构</h2>
+<h3 id="源文件清单">2.1 源文件清单</h3>
+<table>
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 17%" />
+<col style="width: 4%" />
+<col style="width: 74%" />
+</colgroup>
+<thead>
+<tr>
+<th>类型</th>
+<th>文件</th>
+<th>行数</th>
+<th>职责</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置</td>
+<td><code>his_config.h</code></td>
+<td>~90</td>
+<td>长度常量、枚举、文件路径、默认值</td>
+</tr>
+<tr>
+<td>配置</td>
+<td><code>his.h</code></td>
+<td>~230</td>
+<td>8 个业务结构体、所有函数声明、<code>extern</code> 全局变量</td>
+</tr>
+<tr>
+<td>基础</td>
+<td><code>his_link.c</code></td>
+<td>~110</td>
+<td>通用链表：<code>InitList/InsertNode/DeleteNode/FindNode/TraverseList/FreeList</code></td>
+</tr>
+<tr>
+<td>基础</td>
+<td><code>his_tool.c</code></td>
+<td>~190</td>
+<td>输入校验、ID 生成、文件 I/O、密码混淆、安全宏</td>
+</tr>
+<tr>
+<td>主控</td>
+<td><code>his_main.c</code></td>
+<td>~500</td>
+<td>程序入口 <code>main()</code>、三种角色登录认证、主菜单路由</td>
+</tr>
+<tr>
+<td>业务</td>
+<td><code>dept_bed.c</code></td>
+<td>~530</td>
+<td>科室 CRUD、床位 CRUD（含住院出院）、床位统计</td>
+</tr>
+<tr>
+<td>业务</td>
+<td><code>doctor.c</code></td>
+<td>~390</td>
+<td>医生 CRUD、账号密码管理、持久化</td>
+</tr>
+<tr>
+<td>业务</td>
+<td><code>schedule.c</code></td>
+<td>~430</td>
+<td>排班 CRUD、<code>selectDoctorByDept</code>、持久化</td>
+</tr>
+<tr>
+<td>业务</td>
+<td><code>drug.c</code></td>
+<td>~550</td>
+<td>药品 CRUD、库存管理（入库 / 出库 / 预警）、门诊发药</td>
+</tr>
+<tr>
+<td>业务</td>
+<td><code>admin_tools.c</code></td>
+<td>~220</td>
+<td>全局查询统计、管理员报表导出、一键数据备份</td>
+</tr>
+<tr>
+<td>业务</td>
+<td><code>patient.c</code></td>
+<td>~630</td>
+<td>患者 CRUD、自助充值、只读查看、PIN 校验</td>
+</tr>
+<tr>
+<td>业务</td>
+<td><code>record.c</code></td>
+<td>~520</td>
+<td>医疗记录 CRUD、医生工作站（查看患者 / 写诊断 / 开处方）</td>
+</tr>
+<tr>
+<td>业务</td>
+<td><code>registration.c</code></td>
+<td>~500</td>
+<td>普通挂号、预约挂号、查看 / 取消挂号</td>
+</tr>
+</tbody>
+</table>
+<h3 id="模块依赖关系">2.2 模块依赖关系</h3>
+<pre><code>his_config.h (配置常量/枚举/路径)
+├── his.h (结构体/函数声明 / extern 全局变量)
+│
+└── his.h (全局头文件)
+    ├── his_main.c       (主控/菜单)
+    │   └── 业务层（10 个文件）
+    │       ├── dept_bed.c
+    │       ├── doctor.c
+    │       ├── schedule.c
+    │       ├── drug.c
+    │       ├── admin_tools.c
+    │       ├── patient.c
+    │       ├── record.c
+    │       └── registration.c
+    │
+    ├── 业务模块 (8 文件)
+    ├── his_tool.c        (工具函数)
+    └── his_link.c        (通用链表)
+        └── 8 个 LinkList 实例</code></pre>
+<h3 id="跨模块函数调用">2.3 跨模块函数调用</h3>
+<pre><code>his_main.c
+├── adminMenu()
+│   ├── patientModule()         → patient.c
+│   │   └── inputAndXxxRecords() → record.c
+│   ├── dept_bedModule()        → dept_bed.c
+│   │   ├── doctorSubMenu()     → doctor.c
+│   │   └── scheduleSubMenu()   → schedule.c
+│   └── drugModule()            → drug.c
+│       ├── globalStatsSubMenu() → admin_tools.c
+│       └── backupAllData()      → admin_tools.c
+├── doctorMenu()
+│   ├── queryPatientByDoctor()  → record.c
+│   ├── medicalRecordModule()   → record.c
+│   └── queryMyAppointment()   → record.c
+└── patientMenu()
+    ├── normalRegistration()    → registration.c
+    ├── appointmentRegistration() → registration.c
+    ├── patientRecharge()       → patient.c
+    ├── viewMyRegistration()    → registration.c
+    └── cancelMyRegistration()  → registration.c</code></pre>
+<p>所有跨模块调用通过 his.h 中的 extern
+声明完成，模块间不直接引用对方内部函数。</p>
+<h2 id="三.-数据模型与关联关系">三. 数据模型与关联关系</h2>
+<h3 id="全局链表数据总线">3.1 全局链表数据总线</h3>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr>
+<th>链表</th>
+<th>数据类型</th>
+<th>写入模块</th>
+<th>读取模块</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>patient_list</td>
+<td>Patient</td>
+<td>patient.c</td>
+<td>registration.c, record.c, admin_tools.c</td>
+</tr>
+<tr>
+<td>doctor_list</td>
+<td>Doctor</td>
+<td>doctor.c</td>
+<td>schedule.c, registration.c, record.c, admin_tools.c</td>
+</tr>
+<tr>
+<td>dept_list</td>
+<td>Department</td>
+<td>dept_bed.c</td>
+<td>doctor.c, drug.c, schedule.c, registration.c, admin_tools.c</td>
+</tr>
+<tr>
+<td>bed_list</td>
+<td>Bed</td>
+<td>dept_bed.c</td>
+<td>admin_tools.c</td>
+</tr>
+<tr>
+<td>drug_list</td>
+<td>Drug</td>
+<td>drug.c</td>
+<td>admin_tools.c</td>
+</tr>
+<tr>
+<td>record_list</td>
+<td>MedicalRecord</td>
+<td>record.c</td>
+<td>patient.c, registration.c, admin_tools.c</td>
+</tr>
+<tr>
+<td>schedule_list</td>
+<td>DoctorSchedule</td>
+<td>schedule.c</td>
+<td>registration.c, admin_tools.c</td>
+</tr>
+<tr>
+<td>appointment_list</td>
+<td>Appointment</td>
+<td>registration.c</td>
+<td>schedule.c</td>
+</tr>
+</tbody>
+</table>
+<h3 id="实体关联关系">3.2 实体关联关系</h3>
+<table>
+<colgroup>
+<col style="width: 76%" />
+<col style="width: 5%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>关系</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Doctor.dept_id → Department.id</code></td>
+<td>多对一</td>
+<td>一个科室有多名医生</td>
+</tr>
+<tr>
+<td><code>Bed.dept_id → Department.id</code></td>
+<td>多对一</td>
+<td>一个科室有多个床位</td>
+</tr>
+<tr>
+<td><code>Patient.doctor_id → Doctor.id</code></td>
+<td>多对一</td>
+<td>一个医生有多个患者</td>
+</tr>
+<tr>
+<td><code>MedicalRecord.patient_id → Patient.id</code></td>
+<td>多对一</td>
+<td>一个患者有多条医疗记录</td>
+</tr>
+<tr>
+<td><code>Appointment.schedule_id → DoctorSchedule.id</code></td>
+<td>多对一</td>
+<td>一个排班有多个预约</td>
+</tr>
+</tbody>
+</table>
+<h3 id="相关数据结构设计">3.3 相关数据结构设计</h3>
+<h4 id="patient">3.3.1 Patient</h4>
+<pre><code>typedef struct {
+      char id[MAX_ID_LEN];              // P260511001（前缀P+年月日+序号）
+      char name[MAX_NAME_LEN];          // 姓名
+      int age;                          // 年龄
+      char gender[10];                  // 男/女
+      float insurance_ratio;            // 医保报销比例（默认 0.7）
+      long long balance;                // 账户余额（分，避免浮点误差）
+      int is_inpatient;                 // 枚举 PATIENT_OUT=0 / PATIENT_IN=1
+      char bed_id[MAX_ID_LEN];          // 绑定床位ID（住院时）
+      int record_count;                 // 关联医疗记录数（冗余，用于快速统计）
+      char phone[15];                   // 手机号
+      char id_card[20];                 // 身份证号
+      char doctor_id[MAX_ID_LEN];       // 挂号医生ID（业务关键外键）
+      char dept_id[MAX_ID_LEN];         // 挂号科室ID
+      int register_status;              // 枚举 NONE=0 / PENDING=1 / IN_PROGRESS=2 / DONE=3
+      char register_time[25];           // 挂号时间
+      char pin[7];                      // 6 位访问密码（空串=未设置）
+      char register_record_id[MAX_ID_LEN]; // 关联的挂号记录ID（精确退款用）
+  } Patient;</code></pre>
+<h4 id="doctor">3.3.2 Doctor</h4>
+<pre><code>typedef struct {
+      char id[MAX_ID_LEN];           // D260511001
+      char name[MAX_NAME_LEN];       // 姓名
+      char dept_id[MAX_ID_LEN];      // 所属科室ID（→Department.id 外键）
+      char specialty[100];           // 擅长领域
+      char account[MAX_NAME_LEN];    // 登录账号（唯一性检查）
+      char password[MAX_PWD_LEN];    // 登录密码（nibble-swap 混淆存储）
+      int max_register;              // 每日最大挂号量
+      int current_register;          // 当前已挂号量
+      char register_date[11];        // 挂号日期 YYYY-MM-DD（用于每日重置）
+  } Doctor;</code></pre>
+<p>设计细节： register_date 与 current_register
+配合实现”每日挂号量重置”——每次挂号时对比当前日期，若不同则将
+current_register 置 0 并更新日期。</p>
+<h4 id="department">3.3.3 Department</h4>
+<pre><code>typedef struct {
+      char id[MAX_ID_LEN];           // K260511001
+      char name[MAX_NAME_LEN];       // 科室名称
+      int doctor_count;              // 医生数
+  } Department;</code></pre>
+<h4 id="bed">3.3.4 Bed</h4>
+<pre><code>typedef struct {
+      char id[MAX_ID_LEN];           // B260511001
+      RoomType room_type;            // 枚举 ROOM_NORMAL=1 / ROOM_SEMI=2 / ROOM_VIP=3
+      char dept_id[MAX_ID_LEN];      // 所属科室ID
+      BedStatus status;              // 枚举 BED_FREE=0 / BED_OCCUPIED=1
+      char patient_id[MAX_ID_LEN];   // 占用患者ID
+      char admit_time[30];           // 入院时间
+  } Bed;</code></pre>
+<p>状态机： 空闲 → 入住（被占用）→ 出院 → 空闲，严格单向流转。</p>
+<h4 id="drug">3.3.5 Drug</h4>
+<pre><code>typedef struct {
+      char id[MAX_ID_LEN];           // M260511001
+      char general_name[50];         // 通用名
+      char trade_name[50];           // 商品名
+      char alias[50];                // 别名
+      float price;                   // 单价
+      int stock;                     // 库存
+      int warning_threshold;         // 预警阈值（低于此值触发预警）
+      char dept_id[MAX_ID_LEN];      // 所属科室ID
+  } Drug;</code></pre>
+<p>校验设计： general_name / trade_name / alias 三个名称字段各自用
+while(1) 循环校验，禁止空输入和 | 分隔符。</p>
+<h4 id="medicalrecord">3.3.6 MedicalRecord</h4>
+<pre><code>typedef struct {
+      char id[MAX_ID_LEN];              // R260511001
+      char patient_id[MAX_ID_LEN];      // 关联患者ID
+      char doctor_id[MAX_ID_LEN];       // 负责医生ID
+      RecordType type;                   // 枚举 1=挂号 2=诊断 3=检查 4=住院 5=处方
+      long long cost;                    // 费用（分，避免浮点误差）
+      char detail[200];                  // 详情
+      char create_time[30];              // 创建时间
+      int cancelled;                     // 是否已取消退款（0=正常，1=已取消）
+  } MedicalRecord;</code></pre>
+<p>作用：
+充当”审计日志”——每笔挂号、诊断、发药等操作都创建一条记录，患者端通过 PIN
+验证后可查阅全部记录。</p>
+<h4 id="doctorschedule">3.3.7 DoctorSchedule</h4>
+<pre><code>typedef struct {
+      char id[MAX_ID_LEN];           // S260511001
+      char doctor_id[MAX_ID_LEN];    // 医生ID
+      char dept_id[MAX_ID_LEN];      // 科室ID
+      char date[11];                 // 日期 YYYY-MM-DD
+      char time_slot[20];            // 时间段（如&quot;上午&quot;&quot;下午&quot;）
+      int max_patients;              // 总号源（受 Doctor.max_register 上限约束）
+      int current_patients;          // 已预约数
+      int is_available;              // 是否可预约
+  } DoctorSchedule;</code></pre>
+<p>约束设计： addSchedule 时输入的 max_patients 必须 ≤ 所选 Doctor 的
+max_register 字段。</p>
+<h4 id="appointment">3.3.8 Appointment</h4>
+<pre><code>typedef struct {
+      char id[MAX_ID_LEN];           // A260511001
+      char patient_id[MAX_ID_LEN];   // 患者ID
+      char schedule_id[MAX_ID_LEN];  // 排班ID（→DoctorSchedule.id 外键）
+      char status[20];               // &quot;已预约&quot; / &quot;已完成&quot; / &quot;已取消&quot;
+      char create_time[30];          // 预约时间
+      long long cost;                // 支付金额（分，避免浮点误差）
+  } Appointment;</code></pre>
+<h3 id="枚举与配置层his_config.h">3.4 枚举与配置层（his_config.h）</h3>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 69%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr>
+<th>枚举名</th>
+<th>枚举值定义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BedStatus</code></td>
+<td><code>FREE=0, OCCUPIED=1</code></td>
+<td>床位状态</td>
+</tr>
+<tr>
+<td><code>InpatientStatus</code></td>
+<td><code>OUT=0, IN=1</code></td>
+<td>患者住院状态</td>
+</tr>
+<tr>
+<td><code>RoomType</code></td>
+<td><code>NORMAL=1, SEMI=2, VIP=3</code></td>
+<td>病房类型</td>
+</tr>
+<tr>
+<td><code>RecordType</code></td>
+<td><code>REGISTER=1, DIAGNOSIS=2, EXAM=3, INHOSP=4, PRESCR=5</code></td>
+<td>医疗记录类型</td>
+</tr>
+<tr>
+<td><code>RegStatus</code></td>
+<td><code>NONE=0, PENDING=1, IN_PROGRESS=2, DONE=3</code></td>
+<td>挂号状态</td>
+</tr>
+</tbody>
+</table>
+<p>ID 前缀体系（8 个常量）：</p>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 29%" />
+<col style="width: 22%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr>
+<th>前缀</th>
+<th>实体</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>P</code></td>
+<td><code>Patient</code></td>
+<td><code>P260511001</code></td>
+<td>患者 ID</td>
+</tr>
+<tr>
+<td><code>D</code></td>
+<td><code>Doctor</code></td>
+<td><code>D260511001</code></td>
+<td>医生 ID</td>
+</tr>
+<tr>
+<td><code>K</code></td>
+<td><code>Department</code></td>
+<td><code>K260511001</code></td>
+<td>科室 ID（取 “科” 拼音首字母）</td>
+</tr>
+<tr>
+<td><code>B</code></td>
+<td><code>Bed</code></td>
+<td><code>B260511001</code></td>
+<td>床位 ID</td>
+</tr>
+<tr>
+<td><code>M</code></td>
+<td><code>Drug</code></td>
+<td><code>M260511001</code></td>
+<td>药品 ID（取 Medicine 首字母）</td>
+</tr>
+<tr>
+<td><code>R</code></td>
+<td><code>MedicalRecord</code></td>
+<td><code>R260511001</code></td>
+<td>病历 ID</td>
+</tr>
+<tr>
+<td><code>S</code></td>
+<td><code>DoctorSchedule</code></td>
+<td><code>S260511001</code></td>
+<td>排班 ID（与 Patient 的 P 区分）</td>
+</tr>
+<tr>
+<td><code>A</code></td>
+<td><code>Appointment</code></td>
+<td><code>A260511001</code></td>
+<td>预约 ID</td>
+</tr>
+</tbody>
+</table>
+<pre><code>ID 生成规则： [前缀字符][年2位][月2位][日2位][序号3位]，例如 P260511001 = 患者 + 2026年05月11日 + 001号。序号每日自 001 重新开始（GenerateID函数内部判断当日已生成数 + 1）。</code></pre>
+<h3 id="文件序列化设计函数指针策略模式">3.5
+文件序列化设计（函数指针策略模式）</h3>
+<pre><code> // 保存：遍历链表 → format_func 将结构体格式化为 | 分隔行 → fprintf
+  int SaveDataToFile(LinkList* list, const char* filename,
+                     void (*format_func)(void*, char*));
+
+  // 加载：fgets 读取每行 → parse_func 解析 | 分隔行为结构体 → InsertNode
+  int LoadDataFromFile(LinkList* list, const char* filename,
+                      void (*parse_func)(char*, void*));</code></pre>
+<p>每个模块提供自己的 formatXxxLine() / parseXxxLine() 回调，以 patient
+为例：</p>
+<pre><code> // data/patient.txt 行格式（| 分隔）：
+  P260511001|张三|30|男|0.70|197.00|0||2|13800138000|110101199003071234|D260511001|K260511001|1|2026-05-11 09:30|123456</code></pre>
+<p>原子写入模式： 先写 .tmp → fclose → remove 原文件 → rename tmp
+为原文件名，避免写入中途崩溃导致文件损坏。</p>
+<h2 id="四.-三角色运转流程">四. 三角色运转流程</h2>
+<h3 id="系统初始化管理员">4.1 系统初始化（管理员）</h3>
+<h4 id="程序启动流程">4.1.1 程序启动流程</h4>
+<pre><code>main()
+  ├─ initGlobalLists()  ── 创建 8 个空链表
+  ├─ loadAllHisData()   ── 从 data/*.txt 加载所有数据
+  │    ├─ loadDeptData()       data/dept.txt
+  │    ├─ loadDoctorData()     data/doctor.txt
+  │    ├─ loadBedData()        data/bed.txt
+  │    ├─ loadPatientData()    data/patient.txt
+  │    ├─ loadDrugData()       data/drug.txt
+  │    ├─ loadRecordData()     data/record.txt
+  │    ├─ loadScheduleData()   data/schedule.txt
+  │    └─ loadAppointmentData() data/appointment.txt
+  └─ 主菜单循环
+       ├─ 1. 管理员登录       ← 首次启动选择此项
+       ├─ 2. 医生登录
+       ├─ 3. 患者操作
+       └─ 0. 退出系统</code></pre>
+<p>首次启动时所有 data/*.txt 不存在，8
+个全局链表均为空，系统处于”待初始化”状态。管理员登录后依次建科室、建医生、建床位、建药品。</p>
+<h4 id="管理员登录">4.1.2 管理员登录</h4>
+<p>账号 admin 硬编码在 his_config.h 中，默认密码
+123456。支持运行时修改密码，持久化存储在 data/admin.dat。连续失败 5
+次锁定，重启程序后恢复。</p>
+<h4 id="添加科室">4.1.3 添加科室</h4>
+<pre><code>dept_bedModule() → deptSubMenu() → addDept()
+  1. inputDeptInfo：输入科室名称（while 循环校验非空 + 禁止 | 分隔符）
+  2. GenerateID：生成 &quot;K260511001&quot;（K + 年月日 + 序号）
+  3. doctor_count = 0
+  4. InsertNode(dept_list)
+  5. saveDeptData() → 写入 data/dept.txt</code></pre>
+<h4 id="添加医生">4.1.4 添加医生</h4>
+<pre><code>doctorSubMenu() → addDoctor()
+  1. 选择所属科室（显示科室列表 → 输入科室ID → FindNode 校验）
+  2. inputDoctorInfo：姓名（while循环）/ 特长 / 登录账号（账号唯一性检查）
+  3. 输入密码（非空校验 → passwordObfuscate nibble-swap 混淆）
+  4. 输入每日最大挂号量（默认 30）
+  5. GenerateID → &quot;D260511001&quot;
+  6. InsertNode(doctor_list) → dept-&gt;doctor_count++
+  7. saveDoctorData() + saveDeptData()</code></pre>
+<h4 id="添加床位与药品">4.1.5 添加床位与药品</h4>
+<p>床位：选择所属科室 → 选择病房类型（普通/双人/VIP）→ GenerateID →
+status=BED_FREE → save</p>
+<p>药品：选择所属科室 → 输入通用名/商品名/别名/单价 → 初始库存/预警阈值
+→ GenerateID → save</p>
+<p><strong>库存预警：</strong>预警阈值默认按库存的
+20%（DRUG_WARNING_RATIO）自动计算，用户可修改。库存低于阈值时系统自动提示。</p>
+<h3 id="日常运转三角色协作">4.2 日常运转（三角色协作）</h3>
+<h4 id="场景一患者首次就诊普通挂号">4.2.1
+场景一：患者首次就诊（普通挂号）</h4>
+<pre><code>患者&quot;张三&quot;首次来医院，挂内科张明医生的号
+
+① 患者菜单 → 1. 普通挂号
+   normalRegistration()
+   └─ inputAndFindOrCreatePatient()
+        ├─ 输入手机号 13800138000 → 按ID查找 → 按手机号查找 → 未找到
+        ├─ 询问是否创建新患者 → 是
+        ├─ 姓名: 张三 | 年龄: 30 | 性别: 男
+        ├─ 手机号: 13800138000 | 身份证: 110101199003071234
+        │  (ValidateIDCard 18位加权校验 + isIDCardUsedByOther 唯一性检查)
+        ├─ 访问密码: 123456（可选）
+        ├─ GenerateID → &quot;P260511001&quot;
+        └─ savePatientData()
+
+② 余额不足，先充值
+   患者菜单 → 6. 自助充值
+   └─ patientRecharge(): 充值 200 元 → 余额 200.00
+
+③ 再次挂号（手机号匹配到已有患者）
+   selectDeptAndDoctor()
+   └─ 显示科室列表 → 选择 1.内科 → 显示内科医生
+   └─ 选择 1.张明（号源 0/30，充足）
+
+④ 确认费用 → 执行挂号
+   挂号费 10.00 | 医保报销 70% | 实际支付 3.00 元
+   余额 200.00 &gt;= 3.00 → 通过
+   └─ 扣费: 200.00 → 197.00
+   └─ register_status = REG_STATUS_PENDING（待就诊）
+   └─ 张明.current_register: 0 → 1
+   └─ 创建挂号记录 R260511001（RECORD_REGISTER, 3.00元）
+   └─ savePatientData() + saveDoctorData() + saveRecordData()</code></pre>
+<h4 id="场景二医生接诊">4.2.2 场景二：医生接诊</h4>
+<pre><code>医生&quot;张明&quot;登录系统
+
+① doctorLogin()
+ └─ 账号: zhangming | 密码: 123456
+   └─ passwordObfuscate 混淆后比对通过
+   └─ 设置 g_current_doctor_id / g_current_doctor_name（会话跟踪）
+
+② 查看患者（菜单 → 1.查看我的患者）
+   └─ 当前挂号: P260511001 张三 | 状态: 待就诊
+
+③ 写诊断记录（菜单 → 2.管理医疗记录 → 2.新增诊断记录）
+   └─ 患者ID: P260511001
+   └─ 三重校验：患者存在 → 已挂号(REG_STATUS_PENDING) → 挂的是自己的号
+   └─ 诊断: &quot;患者血压偏高...诊断为轻度高血压&quot; | 费用: 50.00
+   └─ 创建记录 R260511002 | saveRecordData()
+
+④ 修改就诊状态（菜单 → 4.修改就诊状态）
+   └─ 待就诊 → 已完成（状态流转硬约束）
+   └─ savePatientData() </code></pre>
+<h4 id="场景三门诊发药">4.2.3 场景三：门诊发药</h4>
+<pre><code>药房管理员为张三发药（阿莫西林胶囊 x2）
+
+drugModule() → 3.门诊发药 → issuePrescription()
+
+① 校验患者 → 选药品 → 输入数量
+   患者ID: P260511001 → 找到张三（余额 197.00）
+   药品ID: M260511001 → 阿莫西林 | 库存 500
+   数量: 2 | 库存 500 &gt;= 2 → 通过
+   检查重复处方: hasDuplicatePrescription() → 无重复
+
+② 校验医生 → 计算费用
+   医生ID: D260511001 → 校验: 患者挂的张明的号
+   总费用: 12.50 x 2 = 25.00
+   医保报销: 25.00 x 70% = 17.50
+   自付: 25.00 - 17.50 = 7.50
+   余额 197.00 &gt;= 7.50 → 通过
+
+③ 确认发药 → 执行
+   扣库存: 500 → 498 | 扣余额: 197.00 → 189.50
+   创建处方记录 R260511003（RECORD_PRESCR, 25.00元）
+saveRecordData() + saveDrugData() + savePatientData()
+   (保存顺序: 记录作为审计证据优先)</code></pre>
+<h4 id="场景四预约挂号">4.2.4 场景四：预约挂号</h4>
+<pre><code>患者李四预约皮肤科林泽宇医生（2026-05-12 上午）
+
+① 前置：管理员新增排班
+   scheduleSubMenu() → 1.新增排班
+   └─ 选择科室: 皮肤科 | 选择医生: 林泽宇（selectDoctorByDept）
+   └─ 日期: 2026-05-12 | 时段: 上午
+   └─ 号源数: 30（受医生 max_register 上限约束）
+   └─ GenerateID → &quot;S260511001&quot; | saveScheduleData()
+
+② 患者预约
+   appointmentRegistration()
+   └─ 创建患者: 李四 | P260511002 | 充值 100 元
+   └─ 选择科室: 皮肤科 | 选择医生: 林泽宇
+   └─ 选择排班: 2026-05-12 上午（号源 0/30）
+   └─ 预约费 20.00 | 医保 70% | 实付 6.00
+   └─ 余额 100.00 &gt;= 6.00 → 通过
+   └─ 创建预约 A260511001 | status=&quot;已预约&quot;
+   └─ saveAppointmentData() + saveScheduleData() + savePatientData()
+
+③ 取消预约（患者自助）
+   └─ PIN 验证 → 预约 status = &quot;已取消&quot;
+   └─ 排班号源恢复: current_patients: 1 → 0
+   └─ 退费: balance += cost</code></pre>
+<h4 id="场景五患者自助操作">4.2.5 场景五：患者自助操作</h4>
+<pre><code>查看医疗记录（菜单 → 5.查看我的医疗记录）
+└─ 输入患者ID → PIN 码验证（3 次尝试）
+└─ 显示个人信息 + 全部医疗记录明细
+
+    记录ID       | 类型 | 费用   | 详情
+    R260511001   | 挂号 | 3.00  | 普通挂号 - 费用: 3.00
+    R260511002   | 诊断 | 50.00 | 诊断为轻度高血压
+    R260511003   | 处方 | 25.00 | 阿莫西林 x2, 医保报销17.50元
+
+自助充值（菜单 → 6.自助充值）
+└─ 输入患者ID → PIN 验证
+└─ 单次充值上限 100000 元 | 总额上限 500000 元</code></pre>
+<h3 id="三种视角的功能矩阵">4.3 三种视角的功能矩阵</h3>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 35%" />
+<col style="width: 30%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr>
+<th>功能模块</th>
+<th>管理员</th>
+<th>医生</th>
+<th>患者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>系统初始化</td>
+<td>添加科室 / 医生 / 床位 / 药品</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>患者管理</td>
+<td>增删改查患者</td>
+<td>查看挂自己号的患者</td>
+<td>查看自己的信息</td>
+</tr>
+<tr>
+<td>挂号</td>
+<td>-</td>
+<td>-</td>
+<td>普通挂号 + 预约挂号</td>
+</tr>
+<tr>
+<td>医疗记录</td>
+<td>管理所有记录</td>
+<td>写诊断 / 处方 / 改就诊状态</td>
+<td>只读查看（PIN 保护）</td>
+</tr>
+<tr>
+<td>发药</td>
+<td>门诊发药（含医保结算）</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>药品库存</td>
+<td>入库 / 出库 / 预警</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>床位管理</td>
+<td>住院 / 出院办理</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>排班管理</td>
+<td>增删改查排班</td>
+<td>查看我的排班</td>
+<td>-</td>
+</tr>
+<tr>
+<td>充值</td>
+<td>-</td>
+<td>-</td>
+<td>自助充值</td>
+</tr>
+<tr>
+<td>取消挂号</td>
+<td>-</td>
+<td>-</td>
+<td>取消挂号 / 预约（退费）</td>
+</tr>
+<tr>
+<td>统计报表</td>
+<td>全院统计（含文件导出）</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>数据备份</td>
+<td>一键备份所有模块</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>账号管理</td>
+<td>添加 / 修改医生账号</td>
+<td>修改自身密码</td>
+<td>-</td>
+</tr>
+<tr>
+<td>个人信息</td>
+<td>-</td>
+<td>查看资料 + 修改密码</td>
+<td>PIN 保护查看</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before:always;"></div>
+<h2 id="五核心业务数据联动">五、核心业务数据联动</h2>
+<p>HIS
+系统的核心操作均涉及多表（链表）联动更新。以下分析四个关键流程的数据变动。</p>
+<h3 id="挂号流程涉及-patient-doctor-record">5.1 挂号流程（涉及 patient +
+doctor + record）</h3>
+<pre><code>normalRegistration()
+  │
+  ├─ 操作前状态
+  │   patient: 张三, balance=200.00, register_status=NONE
+  │   doctor:  张明, current_register=0/30
+  │
+  ├─ 步骤1: 选择科室+医生
+  │   内科 → 张明 (号源 0/30 充足)
+  │
+  ├─ 步骤2: 计算并校验
+  │   挂号费 10.00, 医保 70%, 自付 3.00
+  │   余额 200.00 &gt;= 3.00 ✓
+  │
+  ├─ 步骤3: 扣费更新患者
+  │   balance: 20000→19700(分)  doctor_id 赋值
+  │   register_status→PENDING  record_count++
+  │
+  ├─ 步骤4: 更新医生号源
+  │   current_register: 0→1 (跨日自动清零)
+  │
+  └─ 步骤5: 创建挂号记录
+      MedicalRecord { type=REGISTER, cost=300(分),
+                      detail=&quot;普通挂号 - 费用: 3.00&quot; }</code></pre>
+<h4 id="数据联动表">数据联动表</h4>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 66%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>文件</th>
+<th>字段变化</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>patient.txt</td>
+<td>balance ↓, doctor_id 更新, register_status→1, record_count++</td>
+<td>savePatientData()</td>
+</tr>
+<tr>
+<td>doctor.txt</td>
+<td>current_register++（跨日检测自动重置）</td>
+<td>saveDoctorData()</td>
+</tr>
+<tr>
+<td>record.txt</td>
+<td>新增 RECORD_REGISTER 记录（含费用明细）</td>
+<td>saveRecordData()</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>保存顺序：doctor → record →
+patient。医疗记录作为审计证据优先持久化。</p>
+</blockquote>
+<h3 id="发药流程涉及-drug-patient-record">5.2 发药流程（涉及 drug +
+patient + record）</h3>
+<pre><code>issuePrescription()
+  │
+  ├─ 步骤1: 校验（6 项）
+  │   患者存在 ✓ | 药品存在 ✓ | 库存够 ✓
+  │   医生存在 ✓ | 挂号匹配 ✓ | 重复处方警告 ✓
+  │
+  ├─ 步骤2: 计算费用（分精度）
+  │   总价 = 12.50×2 = 25.00 元 = 2500(分)
+  │   医保 = 2500×0.7 = 1750(分) | 自付 = 750(分)
+  │
+  ├─ 步骤3: 执行更新
+  │   drug.stock: 500→498
+  │   patient.balance: 19700→18950(分)
+  │   record_count: 2→3
+  │
+  └─ 步骤4: 创建处方记录
+      MedicalRecord { type=PRESCR, cost=2500(分),
+                      detail=&quot;门诊发药: 阿莫西林胶囊 x2&quot; }</code></pre>
+<h4 id="数据联动表-1">数据联动表</h4>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 58%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>文件</th>
+<th>字段变化</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>drug.txt</td>
+<td>stock: 500→498</td>
+<td>saveDrugData()</td>
+</tr>
+<tr>
+<td>patient.txt</td>
+<td>balance: 19700→18950(分), record_count++</td>
+<td>savePatientData()</td>
+</tr>
+<tr>
+<td>record.txt</td>
+<td>新增 PRESCR 记录（费用、药品明细）</td>
+<td>saveRecordData()</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>保存顺序：record → drug →
+patient。先存处方记录（审计证据），再存库存和余额变更。</p>
+</blockquote>
+<h3 id="预约-取消预约涉及-patient-schedule-appointment">5.3 预约 /
+取消预约（涉及 patient + schedule + appointment）</h3>
+<pre><code>预约流程                              取消预约流程
+─────────                           ─────────
+patient.balance ↓                   PIN 验证 ✓
+schedule.current_patients++         a-&gt;status = &quot;已取消&quot;
+新增 Appointment 记录                 schedule.current_patients--
+saveAppointmentData()               patient.balance += cost（退费）
+saveScheduleData()                  saveAppointmentData()
+savePatientData()                   saveScheduleData()
+                                    savePatientData()</code></pre>
+<h3 id="住院-出院涉及-bed-patient">5.4 住院 / 出院（涉及 bed +
+patient）</h3>
+<pre><code>住院 (BED_FREE→BED_OCCUPIED)        出院 (BED_OCCUPIED→BED_FREE)
+─────────────────────────────       ────────────────────────────
+bed: status=1, patient_id 绑定       bed: status=0, patient_id=&quot;-1&quot;
+patient: is_inpatient=1, bed_id 绑定  patient: is_inpatient=0, bed_id 清空
+saveBedData() + savePatientData()   saveBedData() + savePatientData()</code></pre>
+<h3 id="科室关联变更涉及-dept-doctor">5.5 科室关联变更（涉及 dept +
+doctor）</h3>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>联动效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>添加医生</td>
+<td>dept.doctor_count++</td>
+</tr>
+<tr>
+<td>删除医生</td>
+<td>dept.doctor_count–</td>
+</tr>
+<tr>
+<td>删除科室(前置)</td>
+<td>检查 doctor_count&gt;0 和床位存在性</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before:always;"></div>
+<h2 id="六安全与校验机制">六、安全与校验机制</h2>
+<h3 id="输入校验体系">6.1 输入校验体系</h3>
+<p>系统构建了多层输入防护，从底层输入函数到业务校验逐层拦截非法数据：</p>
+<h4 id="层级一统一菜单输入-getvalidchoice">层级一：统一菜单输入 —
+getValidChoice</h4>
+<div class="sourceCode" id="cb26"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> getValidChoice<span class="op">(</span><span class="dt">int</span> min<span class="op">,</span> <span class="dt">int</span> max<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> buf<span class="op">[</span><span class="dv">64</span><span class="op">];</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>inputLine<span class="op">(</span>buf<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>buf<span class="op">)))</span> <span class="cf">continue</span><span class="op">;</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>strlen<span class="op">(</span>buf<span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="cf">continue</span><span class="op">;</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> valid <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> buf<span class="op">[</span>i<span class="op">];</span> i<span class="op">++)</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>buf<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;</span> <span class="ch">&#39;0&#39;</span> <span class="op">||</span> buf<span class="op">[</span>i<span class="op">]</span> <span class="op">&gt;</span> <span class="ch">&#39;9&#39;</span><span class="op">)</span> <span class="op">{</span> valid <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="cf">break</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>valid<span class="op">)</span> <span class="op">{</span> printf<span class="op">(</span><span class="st">&quot;输入无效，只能输入数字！</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span> <span class="cf">continue</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span> choice <span class="op">=</span> atoi<span class="op">(</span>buf<span class="op">);</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>choice <span class="op">&gt;=</span> min <span class="op">&amp;&amp;</span> choice <span class="op">&lt;=</span> max<span class="op">)</span> <span class="cf">return</span> choice<span class="op">;</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">&quot;输入无效，请输入 </span><span class="sc">%d</span><span class="st"> ~ </span><span class="sc">%d</span><span class="st"> 之间！</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> min<span class="op">,</span> max<span class="op">);</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>对比裸 <code>scanf("%d")</code> 的常见问题：</p>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 49%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>问题</th>
+<th>scanf</th>
+<th>getValidChoice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入”abc”</td>
+<td>scanf 返回 0，缓冲区残留，后续 scanf 全部失败，陷入死循环</td>
+<td>fgets 读整行，检测到非数字字符后提示重输，缓冲区已清空</td>
+</tr>
+<tr>
+<td>输入”3 5”</td>
+<td>scanf 只读 3，“” 和 “5” 残留，下次读取直接返回 5，造成逻辑错误</td>
+<td>fgets 读整行，atoi 取第一个数字，无关字符不影响下次输入</td>
+</tr>
+<tr>
+<td>缓冲区溢出</td>
+<td>无保护，超长输入篡改栈上变量</td>
+<td>fgets 限制 64 字符，超长部分留在 stdin 中由 ClearInputBuffer
+清空</td>
+</tr>
+</tbody>
+</table>
+<h4 id="层级二fgets-溢出检测与-gbk-截断保护">层级二：fgets 溢出检测与
+GBK 截断保护</h4>
+<p>各模块的输入函数在 fgets
+后检测末尾是否有换行符；若没有则说明输入超长，调用
+<code>ClearInputBuffer()</code> 清空残留，并检测末尾字节是否
+<strong>≥0x81</strong>（GBK
+中文字节范围），若是则移除该字节防止乱码：</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span>fgets<span class="op">(</span>buf<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>buf<span class="op">),</span> stdin<span class="op">))</span> <span class="op">{</span> ClearInputBuffer<span class="op">();</span> <span class="cf">continue</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span><span class="op">*</span> nl <span class="op">=</span> strchr<span class="op">(</span>buf<span class="op">,</span> <span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span><span class="op">);</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>nl<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>nl <span class="op">=</span> <span class="ch">&#39;</span><span class="sc">\0</span><span class="ch">&#39;</span><span class="op">;</span>          <span class="co">// 正常</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    ClearInputBuffer<span class="op">();</span>  <span class="co">// 超长</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">size_t</span> len <span class="op">=</span> strlen<span class="op">(</span>buf<span class="op">);</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>len <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">char</span><span class="op">)</span>buf<span class="op">[</span>len <span class="op">-</span> <span class="dv">1</span><span class="op">]</span> <span class="op">&gt;=</span> <span class="bn">0x81</span><span class="op">)</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>        buf<span class="op">[</span>len <span class="op">-</span> <span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="ch">&#39;</span><span class="sc">\0</span><span class="ch">&#39;</span><span class="op">;</span>  <span class="co">// 移除孤立的 GBK 首字节</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h4 id="层级三字段级校验">层级三：字段级校验</h4>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 71%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr>
+<th>字段</th>
+<th>校验规则</th>
+<th>违规处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>姓名/科室名</td>
+<td>不能包含分隔符 <code>\|</code></td>
+<td>while 循环重输</td>
+</tr>
+<tr>
+<td>年龄</td>
+<td>0~150 整数</td>
+<td>循环重输</td>
+</tr>
+<tr>
+<td>性别</td>
+<td>只能是”男”或”女”</td>
+<td>循环重输</td>
+</tr>
+<tr>
+<td>手机号</td>
+<td>11 位、全数字、以 1 开头、全院唯一</td>
+<td>格式或重复均重输</td>
+</tr>
+<tr>
+<td>身份证</td>
+<td>18 位、加权校验码 (GB 11643-1999)、全院唯一、年龄一致</td>
+<td>逐个拦截重输</td>
+</tr>
+<tr>
+<td>医保比例</td>
+<td>0.0~1.0 浮点数</td>
+<td>循环重输</td>
+</tr>
+<tr>
+<td>余额/充值</td>
+<td>单次 ≤ 10 万、总额 ≤ 50 万</td>
+<td>提示上限后重输</td>
+</tr>
+<tr>
+<td>菜单选项</td>
+<td>数字、范围内</td>
+<td>提示范围后重输</td>
+</tr>
+</tbody>
+</table>
+<h3 id="身份证校验-gb-11643-1999">6.2 身份证校验 (GB 11643-1999)</h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> ValidateIDCard<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span><span class="op">*</span> id_card<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span>id_card <span class="op">||</span> strlen<span class="op">(</span>id_card<span class="op">)</span> <span class="op">!=</span> <span class="dv">18</span><span class="op">)</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">size_t</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">17</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>id_card<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;</span> <span class="ch">&#39;0&#39;</span> <span class="op">||</span> id_card<span class="op">[</span>i<span class="op">]</span> <span class="op">&gt;</span> <span class="ch">&#39;9&#39;</span><span class="op">)</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> last <span class="op">=</span> id_card<span class="op">[</span><span class="dv">17</span><span class="op">];</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!(</span>last <span class="op">&gt;=</span> <span class="ch">&#39;0&#39;</span> <span class="op">&amp;&amp;</span> last <span class="op">&lt;=</span> <span class="ch">&#39;9&#39;</span><span class="op">)</span> <span class="op">&amp;&amp;</span> last <span class="op">!=</span> <span class="ch">&#39;X&#39;</span> <span class="op">&amp;&amp;</span> last <span class="op">!=</span> <span class="ch">&#39;x&#39;</span><span class="op">)</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="dt">const</span> <span class="dt">int</span> weights<span class="op">[</span><span class="dv">17</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span> <span class="dv">7</span><span class="op">,</span><span class="dv">9</span><span class="op">,</span><span class="dv">10</span><span class="op">,</span><span class="dv">5</span><span class="op">,</span><span class="dv">8</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="dv">6</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="dv">9</span><span class="op">,</span><span class="dv">10</span><span class="op">,</span><span class="dv">5</span><span class="op">,</span><span class="dv">8</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">2</span> <span class="op">};</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="dt">const</span> <span class="dt">char</span> check_chars<span class="op">[]</span> <span class="op">=</span> <span class="st">&quot;10X98765432&quot;</span><span class="op">;</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> sum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">size_t</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">17</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>        sum <span class="op">+=</span> <span class="op">(</span>id_card<span class="op">[</span>i<span class="op">]</span> <span class="op">-</span> <span class="ch">&#39;0&#39;</span><span class="op">)</span> <span class="op">*</span> weights<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> expected <span class="op">=</span> check_chars<span class="op">[</span>sum <span class="op">%</span> <span class="dv">11</span><span class="op">];</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> actual_last <span class="op">=</span> toupper<span class="op">(</span>last<span class="op">);</span>  <span class="co">// x→X</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> actual_last <span class="op">==</span> expected<span class="op">;</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>前 17 位数字与加权系数相乘后累加，和模 11
+得到校验位，与身份证末位比对。此算法来自国家标准 GB
+11643-1999，可在不联网的情况下本地校验身份证真伪。</p>
+<h3 id="年龄与身份证联动校验">6.3 年龄与身份证联动校验</h3>
+<p>新增患者时，输入的年龄必须与身份证号中出生日期计算出来的年龄一致：</p>
+<pre><code>输入年龄: 30
+输入身份证: 110101199003071234
+  → getAgeFromIDCard() 解析出生日期 1990-03-07
+  → 计算当前年龄 = 2026 - 1990 - (生日没过?) = 36
+  → 36 != 30 → 警告，重新输入</code></pre>
+<p>不一致时不会简单跳过，而是引导用户重新依次输入：</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span>inputAge<span class="op">(&amp;</span>p<span class="op">-&gt;</span>age<span class="op">))</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>inputIDCard<span class="op">(</span>p<span class="op">-&gt;</span>id_card<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>p<span class="op">-&gt;</span>id_card<span class="op">),</span> NULL<span class="op">,</span> p<span class="op">-&gt;</span>age<span class="op">))</span> <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">年龄和身份证号不一致，请重新输入。</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3 id="身份认证与访问控制">6.4 身份认证与访问控制</h3>
+<h4 id="登录锁定">登录锁定</h4>
+<p>管理员和医生登录均有 <code>static</code> 变量记录连续失败次数，达到 5
+次后锁定（程序重启后重置），防止暴力破解同时避免永久锁定维护问题。</p>
+<pre><code>adminLogin() / doctorLogin()
+  └─ static int fail_count
+      ├─ fail_count &gt;= 5 → [锁定] 登录尝试次数过多！
+      ├─ 验证成功 → fail_count = 0，返回 1
+      └─ 验证失败 → fail_count++，返回 0</code></pre>
+<h4 id="患者-pin-码保护">患者 PIN 码保护</h4>
+<p>敏感操作（查看记录、充值、取消预约）需要 6 位数字 PIN 码验证：</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> verifyPatientPin<span class="op">(</span>Patient<span class="op">*</span> p<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>p<span class="op">-&gt;</span>pin<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">==</span> <span class="ch">&#39;</span><span class="sc">\0</span><span class="ch">&#39;</span><span class="op">)</span> <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span>  <span class="co">// 未设置则跳过</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> tries <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> tries <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> tries<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>buf<span class="op">,</span> p<span class="op">-&gt;</span>pin<span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;[错误] 验证失败已达上限，操作取消。</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<ul>
+<li><code>pin[0] == '\0'</code> 表示未设置，向后兼容旧数据</li>
+<li>3 次失败后取消操作，不暴露患者信息</li>
+</ul>
+<h4 id="医生端三重校验">医生端三重校验</h4>
+<div class="sourceCode" id="cb33"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 写诊断/处方前的权限校验</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span>FindNode<span class="op">(</span>patient_list<span class="op">,</span> patient_id<span class="op">))</span>          <span class="co">// 1. 患者存在</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>p<span class="op">-&gt;</span>register_status <span class="op">==</span> REG_STATUS_NONE<span class="op">)</span>         <span class="co">// 2. 已挂号</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>p<span class="op">-&gt;</span>doctor_id<span class="op">,</span> doctor_id<span class="op">)</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span>          <span class="co">// 3. 挂对号</span></span></code></pre></div>
+<h4 id="角色权限隔离">角色权限隔离</h4>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>管理员</th>
+<th>医生</th>
+<th>患者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>患者 CRUD</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>医生 CRUD</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>药品管理</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>写诊断/处方</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>查看患者</td>
+<td>✅</td>
+<td>✅(仅挂自己号的)</td>
+<td>✅(仅自己，需PIN)</td>
+</tr>
+<tr>
+<td>充值</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅(需 PIN)</td>
+</tr>
+<tr>
+<td>取消挂号</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅(需 PIN)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="密码存储安全-nibble-swap">6.5 密码存储安全 — nibble-swap</h3>
+<p>密码使用 nibble-swap（半字节交换）混淆存储：</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> passwordObfuscate<span class="op">(</span><span class="dt">char</span><span class="op">*</span> pwd<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> pwd<span class="op">[</span>i<span class="op">];</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>        pwd<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> <span class="op">((</span>pwd<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;&lt;</span> <span class="dv">4</span><span class="op">)</span> <span class="op">|</span> <span class="op">((</span><span class="dt">unsigned</span> <span class="dt">char</span><span class="op">)</span>pwd<span class="op">[</span>i<span class="op">]</span> <span class="op">&gt;&gt;</span> <span class="dv">4</span><span class="op">));</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>自逆性</strong>：设一个字节的 nibble-swap 为 f(x) = (L,
+H)，则 f(f(x)) = f(L, H) = (H, L) =
+x，两次操作恢复原值。登录验证时只需对用户输入的密码做一次
+obfuscate，再与文件中已混淆的密码直接 strcmp 比对。</p>
+<blockquote>
+<p>安全等级：仅防”磁盘被直接读取时一目了然”，不防逆向工程。</p>
+</blockquote>
+<h3 id="文件写入安全-原子保存">6.6 文件写入安全 — 原子保存</h3>
+<div class="sourceCode" id="cb35"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> SaveDataToFile<span class="op">(</span>LinkList<span class="op">*</span> list<span class="op">,</span> <span class="dt">const</span> <span class="dt">char</span><span class="op">*</span> filename<span class="op">,</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>                   <span class="dt">void</span> <span class="op">(*</span>format_func<span class="op">)(</span><span class="dt">void</span><span class="op">*,</span> <span class="dt">char</span><span class="op">*))</span> <span class="op">{</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> tmp<span class="op">[</span>MAX_PATH<span class="op">];</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    snprintf<span class="op">(</span>tmp<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>tmp<span class="op">),</span> <span class="st">&quot;</span><span class="sc">%s</span><span class="st">.tmp&quot;</span><span class="op">,</span> filename<span class="op">);</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ① 写临时文件</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">FILE</span><span class="op">*</span> fp <span class="op">=</span> fopen<span class="op">(</span>tmp<span class="op">,</span> <span class="st">&quot;w&quot;</span><span class="op">);</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ② 遍历链表写入</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ③ fclose</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ④ remove(原文件)</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ⑤ rename(tmp, 原文件) ← 原子操作</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<pre><code>保存步骤：
+① fopen(&quot;data/patient.txt.tmp&quot;, &quot;w&quot;)   — 写临时文件
+② 逐行写入临时文件
+③ fclose(tmp)
+④ remove(&quot;data/patient.txt&quot;)            — 删除原文件
+⑤ rename(tmp, &quot;data/patient.txt&quot;)       — 原子重命名</code></pre>
+<p><code>rename()</code> 是操作系统原语级别的原子操作（NTFS
+保证）。如果程序在 ①~③ 之间崩溃，临时文件不完整但原文件完好；如果程序在
+④
+之后崩溃，临时文件已替代原文件。不存在”写到一半崩溃导致文件损坏”的窗口。</p>
+<h3 id="业务安全校验汇总">6.7 业务安全校验汇总</h3>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 71%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th>校验场景</th>
+<th>校验内容</th>
+<th>违规处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>删除科室</td>
+<td>科室下医生数 &gt; 0？有床位？</td>
+<td>提示无法删除</td>
+</tr>
+<tr>
+<td>删除医生</td>
+<td>有排班？有患者挂号？</td>
+<td>校验后拦截</td>
+</tr>
+<tr>
+<td>删除患者</td>
+<td>有医疗记录？有预约？在住院？有挂号？</td>
+<td>逐项检查后拦截</td>
+</tr>
+<tr>
+<td>发药</td>
+<td>患者存在？药品存在？库存够？医生匹配？余额足？重复处方？</td>
+<td>逐项拦截或警告</td>
+</tr>
+<tr>
+<td>就诊状态流转</td>
+<td>NONE→PENDING→IN_PROGRESS→DONE 硬约束</td>
+<td>非法跳转拦截</td>
+</tr>
+<tr>
+<td>号源限制</td>
+<td>current_register &lt; max_register</td>
+<td>提示号源已满</td>
+</tr>
+<tr>
+<td>跨日重置</td>
+<td>挂号日期 != 今天？</td>
+<td>自动清零号源</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-before:always;"></div>
+<h2 id="七问题解决策略">七、问题解决策略</h2>
+<h3 id="密码明文迁移问题">7.1 密码明文迁移问题</h3>
+<p><strong>问题</strong>：早期版本中 <code>loadDoctorData()</code> 通过
+<code>isprint()</code> 判断加载的密码是否为明文。但 nibble-swap
+混淆后的部分字节恰好落在可打印 ASCII 范围内（如
+‘6’→‘6’、‘3’→‘3’），导致程序重启后误判，反复混淆已混淆的密码，数据彻底损坏。</p>
+<pre><code>错误判断（修复前）：
+  strcpy(check, d-&gt;password);
+  passwordObfuscate(check);           // 对已混淆密码再次混淆 = 还原
+  if (isprint(check[0])) {            // 混淆后某些字符仍可打印
+      strcpy(d-&gt;password, check);     // 明文→混淆 ✓ | 混淆→还原 ✗
+  }</code></pre>
+<p><strong>修复</strong>：将密码迁移逻辑移至登录时按需处理，不再依赖
+<code>isprint()</code>：</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">// doctorLogin 中的迁移逻辑</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> check<span class="op">[</span>MAX_PWD_LEN<span class="op">];</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>HIS_STRNCPY<span class="op">(</span>check<span class="op">,</span> d<span class="op">-&gt;</span>password<span class="op">,</span> MAX_PWD_LEN<span class="op">);</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>passwordObfuscate<span class="op">(</span>check<span class="op">);</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>check<span class="op">,</span> password<span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 匹配说明 d-&gt;password 是明文 → 覆盖为混淆版本</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    HIS_STRNCPY<span class="op">(</span>d<span class="op">-&gt;</span>password<span class="op">,</span> password<span class="op">,</span> MAX_PWD_LEN<span class="op">);</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    saveDoctorData<span class="op">();</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>d<span class="op">-&gt;</span>password<span class="op">,</span> password<span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span>  <span class="co">// 已经是混淆版本，直接匹配</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>关键点：先对文件中读取的密码做 obfuscate，如果和用户输入（已
+obfuscate）匹配，说明原密码是明文 →
+覆盖为混淆版本；如果文件密码直接和用户输入匹配，说明已经是混淆版本 →
+正常登录。</p>
+<h3 id="gbk-中文字符截断乱码">7.2 GBK 中文字符截断乱码</h3>
+<p><strong>问题</strong>：fgets 在输入超长时可能截断在 GBK
+中文首字节（0x81~0xFE），末尾留下孤立字节产生乱码。</p>
+<pre><code>输入: &quot;一二三四五六七八九十&quot; (超长)
+fgets 截断: &quot;一二三四五\xB0&quot;  ← \xB0 是 GBK 首字节，单独显示为乱码</code></pre>
+<p><strong>修复</strong>：截断后检查末尾字节 ≥0x81 则移除：</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="dt">size_t</span> len <span class="op">=</span> strlen<span class="op">(</span>buf<span class="op">);</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>len <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="dt">unsigned</span> <span class="dt">char</span><span class="op">)</span>buf<span class="op">[</span>len <span class="op">-</span> <span class="dv">1</span><span class="op">]</span> <span class="op">&gt;=</span> <span class="bn">0x81</span><span class="op">)</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    buf<span class="op">[</span>len <span class="op">-</span> <span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="ch">&#39;</span><span class="sc">\0</span><span class="ch">&#39;</span><span class="op">;</span></span></code></pre></div>
+<p>为什么 <code>≥0x81</code>？GBK 中文首字节为 0x81~0xFE，ASCII
+可见字符最大 0x7E（‘~’），所以 ≥0x81 的字符一定不是完整 ASCII 字符。</p>
+<h3 id="parsebedline-类型转换安全修复">7.3 parseBedLine
+类型转换安全修复</h3>
+<p><strong>问题</strong>：直接对枚举指针做 <code>(int*)</code>
+强制转换，属于 C 语言未指定行为：</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 修复前 — 未指定行为</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>sscanf<span class="op">(</span>line<span class="op">,</span> <span class="op">...,</span> <span class="op">(</span><span class="dt">int</span><span class="op">*)&amp;</span>b<span class="op">-&gt;</span>room_type<span class="op">,</span> <span class="op">...,</span> <span class="op">(</span><span class="dt">int</span><span class="op">*)&amp;</span>b<span class="op">-&gt;</span>status<span class="op">,</span> <span class="op">...);</span></span></code></pre></div>
+<p><strong>修复后</strong> — 使用中间 int 变量：</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> room_type<span class="op">,</span> status<span class="op">;</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>sscanf<span class="op">(</span>line<span class="op">,</span> <span class="op">...,</span> <span class="op">&amp;</span>room_type<span class="op">,</span> <span class="op">...,</span> <span class="op">&amp;</span>status<span class="op">,</span> <span class="op">...);</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>b<span class="op">-&gt;</span>room_type <span class="op">=</span> <span class="op">(</span>RoomType<span class="op">)</span>room_type<span class="op">;</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>b<span class="op">-&gt;</span>status <span class="op">=</span> <span class="op">(</span>BedStatus<span class="op">)</span>status<span class="op">;</span></span></code></pre></div>
+<p>同时修复了 sscanf 宽度控制防缓冲区溢出。</p>
+<h3 id="parsedeptline-缓冲区溢出修复">7.4 parseDeptLine
+缓冲区溢出修复</h3>
+<p><strong>问题</strong>：sscanf 的 <code>%[^|]</code>
+没有宽度限制：</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 修复前 — 无宽度限制</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>sscanf<span class="op">(</span>line<span class="op">,</span> <span class="st">&quot;%[^|]|%[^|]|</span><span class="sc">%d</span><span class="st">&quot;</span><span class="op">,</span> d<span class="op">-&gt;</span>id<span class="op">,</span> d<span class="op">-&gt;</span>name<span class="op">,</span> <span class="op">&amp;</span>d<span class="op">-&gt;</span>doctor_count<span class="op">);</span></span></code></pre></div>
+<p><strong>修复后</strong> — 精确宽度控制：</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>sscanf<span class="op">(</span>line<span class="op">,</span> <span class="st">&quot;%19[^|]|%49[^|]|</span><span class="sc">%d</span><span class="st">&quot;</span><span class="op">,</span> d<span class="op">-&gt;</span>id<span class="op">,</span> d<span class="op">-&gt;</span>name<span class="op">,</span> <span class="op">&amp;</span>d<span class="op">-&gt;</span>doctor_count<span class="op">);</span></span></code></pre></div>
+<p><code>%19[^|]</code> 限制最多 19 字符 + 1 个 ‘\0’ = 20 字符，适配
+<code>d-&gt;id[MAX_ID_LEN]</code>。</p>
+<h3 id="发药数据保存顺序调整">7.5 发药数据保存顺序调整</h3>
+<p><strong>问题</strong>：原流程先存库存变更，最后存处方记录：</p>
+<pre><code>原顺序：saveDrugData() → savePatientData() → saveRecordData()
+如果第 1 步后崩溃 → 库存已扣但处方记录丢失，无法追溯</code></pre>
+<p><strong>修复后</strong>：</p>
+<pre><code>新顺序：saveRecordData() → saveDrugData() → savePatientData()
+                    ↑
+             审计证据优先持久化</code></pre>
+<p>即使后续保存失败，至少有一条处方记录可以追溯该操作。</p>
+<h3 id="就诊状态流转硬约束">7.6 就诊状态流转硬约束</h3>
+<p><strong>问题</strong>：最初不检查当前状态，医生可直接从”待就诊”跳到”已完成”。</p>
+<p><strong>修复</strong>：增加状态跳转校验：</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>st <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span>  <span class="co">// → 就诊中</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>p<span class="op">-&gt;</span>register_status <span class="op">!=</span> REG_STATUS_PENDING<span class="op">)</span> <span class="op">{</span> <span class="co">/* 拦截 */</span> <span class="op">}</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    p<span class="op">-&gt;</span>register_status <span class="op">=</span> REG_STATUS_IN_PROGRESS<span class="op">;</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>st <span class="op">==</span> <span class="dv">2</span><span class="op">)</span> <span class="op">{</span>  <span class="co">// → 已完成</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>p<span class="op">-&gt;</span>register_status <span class="op">!=</span> REG_STATUS_IN_PROGRESS<span class="op">)</span> <span class="op">{</span> <span class="co">/* 拦截 */</span> <span class="op">}</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>    p<span class="op">-&gt;</span>register_status <span class="op">=</span> REG_STATUS_DONE<span class="op">;</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>状态流转图：</p>
+<pre><code>REG_STATUS_NONE (0) → PENDING (1) → IN_PROGRESS (2) → DONE (3)
+      ↑                                                      |
+      └──────── 取消挂号重置 ────────────────────────────────┘</code></pre>
+<h3 id="分精度计算浮点误差问题">7.7 分精度计算（浮点误差问题）</h3>
+<p><strong>问题</strong>：直接使用 <code>float</code>
+计算金额会导致累积误差（如
+<code>0.1 + 0.2 = 0.30000000000000004</code>），多次扣费后余额逐渐偏离。</p>
+<p><strong>修复</strong>：所有金额以”分”为单位存储（<code>long long</code>），仅显示时除以
+100：</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 计算（整数精度）</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> <span class="dt">long</span> total_cents <span class="op">=</span> <span class="op">(</span><span class="dt">long</span> <span class="dt">long</span><span class="op">)(</span>price <span class="op">*</span> quantity <span class="op">*</span> <span class="fl">100.0</span> <span class="op">+</span> <span class="fl">0.5</span><span class="op">);</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> <span class="dt">long</span> insurance_cents <span class="op">=</span> <span class="op">(</span><span class="dt">long</span> <span class="dt">long</span><span class="op">)(</span>total_cents <span class="op">*</span> insurance_ratio<span class="op">);</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> <span class="dt">long</span> patient_cents <span class="op">=</span> total_cents <span class="op">-</span> insurance_cents<span class="op">;</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="co">// 显示（临时转元）</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">&quot;总费用: </span><span class="sc">%.2f</span><span class="st"> 元</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> <span class="op">(</span><span class="dt">double</span><span class="op">)</span>total_cents <span class="op">/</span> <span class="fl">100.0</span><span class="op">);</span></span></code></pre></div>
+<p>注意 <code>+0.5</code> 用于四舍五入，避免 <code>(int)</code> 截断导致
+1 分的精度损失。</p>
+<div style="page-break-before:always;"></div>
+<h2 id="八特色代码设计">八、特色代码设计</h2>
+<h3 id="void-泛型链表">8.1 void* 泛型链表</h3>
+<p>所有数据在内存中统一以通用单向链表管理：</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> ListNode <span class="op">{</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span><span class="op">*</span> data<span class="op">;</span>              <span class="co">// 任意类型数据的指针</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> data_size<span class="op">;</span>           <span class="co">// 数据大小</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> id<span class="op">[</span>MAX_ID_LEN<span class="op">];</span>     <span class="co">// 节点 ID（用于 O(n) 快速查找）</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> ListNode<span class="op">*</span> next<span class="op">;</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> ListNode<span class="op">;</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>    ListNode<span class="op">*</span> head<span class="op">;</span></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> length<span class="op">;</span></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> LinkList<span class="op">;</span></span></code></pre></div>
+<p>8 个业务实体共用同一套链表操作：</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>InitList()</code></td>
+<td>创建空链表</td>
+</tr>
+<tr>
+<td><code>InsertNode()</code></td>
+<td>插入节点（深拷贝）</td>
+</tr>
+<tr>
+<td><code>DeleteNode()</code></td>
+<td>按 ID 删除节点</td>
+</tr>
+<tr>
+<td><code>FindNode()</code></td>
+<td>按 ID 查找（O(n)）</td>
+</tr>
+<tr>
+<td><code>TraverseList()</code></td>
+<td>遍历打印</td>
+</tr>
+<tr>
+<td><code>FreeList()</code></td>
+<td>释放全部节点</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>对比方案：<code>void*</code> + 函数指针（本项目，类似 C 标准库
+<code>qsort</code> 思路）vs. <code>#define</code>
+宏模板（代码膨胀）vs. 每个实体手写一套链表（冗余）。</p>
+</blockquote>
+<h3 id="函数指针策略模式">8.2 函数指针策略模式</h3>
+<p>数据持久化采用策略模式，将”格式化/解析”策略与”文件读写”骨架分离：</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 骨架（his_tool.c，固定不变）</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> SaveDataToFile<span class="op">(</span>LinkList<span class="op">*</span> list<span class="op">,</span> <span class="dt">const</span> <span class="dt">char</span><span class="op">*</span> filename<span class="op">,</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>                   <span class="dt">void</span> <span class="op">(*</span>format_func<span class="op">)(</span><span class="dt">void</span><span class="op">*,</span> <span class="dt">char</span><span class="op">*));</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> LoadDataFromFile<span class="op">(</span>LinkList<span class="op">*</span> list<span class="op">,</span> <span class="dt">const</span> <span class="dt">char</span><span class="op">*</span> filename<span class="op">,</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>                     <span class="dt">void</span> <span class="op">(*</span>parse_func<span class="op">)(</span><span class="dt">char</span><span class="op">*,</span> <span class="dt">void</span><span class="op">*));</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="co">// 策略示例 — patient.c 提供</span></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="dt">static</span> <span class="dt">void</span> formatPatient<span class="op">(</span><span class="dt">void</span><span class="op">*</span> data<span class="op">,</span> <span class="dt">char</span><span class="op">*</span> line<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>    Patient<span class="op">*</span> p <span class="op">=</span> <span class="op">(</span>Patient<span class="op">*)</span>data<span class="op">;</span></span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>    snprintf<span class="op">(</span>line<span class="op">,</span> MAX_LINE_LEN<span class="op">,</span> <span class="st">&quot;</span><span class="sc">%s</span><span class="st">|</span><span class="sc">%s</span><span class="st">|</span><span class="sc">%d</span><span class="st">|</span><span class="sc">%s</span><span class="st">|...&quot;</span><span class="op">,</span> <span class="co">/* 各字段 */</span><span class="op">);</span></span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a><span class="dt">static</span> <span class="dt">void</span> parsePatient<span class="op">(</span><span class="dt">char</span><span class="op">*</span> line<span class="op">,</span> <span class="dt">void</span><span class="op">*</span> data<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>    Patient<span class="op">*</span> p <span class="op">=</span> <span class="op">(</span>Patient<span class="op">*)</span>data<span class="op">;</span></span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 按 | 拆分字段并赋值</span></span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>8 个业务模块各提供一对 format+parse
+回调，避免重复编写文件读写代码。</p>
+<h3 id="原子写入机制">8.3 原子写入机制</h3>
+<pre><code>保存步骤：
+① fopen(&quot;data/patient.txt.tmp&quot;, &quot;w&quot;)   — 写临时文件
+② 遍历链表，逐行写入临时文件
+③ fclose(tmp)
+④ remove(&quot;data/patient.txt&quot;)            — 删除原文件
+⑤ rename(tmp, &quot;data/patient.txt&quot;)       — 原子重命名（NTFS 保证）</code></pre>
+<p><code>rename()</code>
+是操作系统原语级别的原子操作。不存在”写到一半崩溃导致文件损坏”的窗口。</p>
+<h3 id="分精度金额计算">8.4 分精度金额计算</h3>
+<p>结构体中的金额字段全部以 <code>long long</code> 类型按”分”存储：</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="dt">long</span> balance<span class="op">;</span>       <span class="co">// 余额（分）</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Patient<span class="op">;</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">long</span> <span class="dt">long</span> cost<span class="op">;</span>          <span class="co">// 医疗费用（分）</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> MedicalRecord<span class="op">;</span></span></code></pre></div>
+<blockquote>
+<p>为什么不用 <code>float</code>？<code>float</code> 精度约 7
+位十进制，多次运算后误差累积。<code>long long</code>
+以”分”为单位可精确表示 0~9e18
+分范围，完全满足医院系统的金额精度要求。</p>
+</blockquote>
+<h3 id="id-生成策略">8.5 ID 生成策略</h3>
+<div class="sourceCode" id="cb54"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GenerateID<span class="op">(</span><span class="dt">char</span><span class="op">*</span> id<span class="op">,</span> <span class="dt">char</span> type<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">static</span> <span class="dt">int</span> seq <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">time_t</span> t <span class="op">=</span> time<span class="op">(</span>NULL<span class="op">);</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> tm<span class="op">*</span> tm <span class="op">=</span> localtime<span class="op">(&amp;</span>t<span class="op">);</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>    snprintf<span class="op">(</span>id<span class="op">,</span> MAX_ID_LEN<span class="op">,</span> <span class="st">&quot;</span><span class="sc">%c%02d%02d%02d%03d</span><span class="st">&quot;</span><span class="op">,</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>        type<span class="op">,</span> tm<span class="op">-&gt;</span>tm_year <span class="op">%</span> <span class="dv">100</span><span class="op">,</span> tm<span class="op">-&gt;</span>tm_mon <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> tm<span class="op">-&gt;</span>tm_mday<span class="op">,</span> seq<span class="op">++);</span></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>前缀</th>
+<th>实体</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P</td>
+<td>Patient</td>
+<td>P260511001</td>
+<td>患者</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Doctor</td>
+<td>D260511001</td>
+<td>医生</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Department</td>
+<td>K260511001</td>
+<td>科室（“科”拼音首字母）</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Bed</td>
+<td>B260511001</td>
+<td>床位</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Drug</td>
+<td>M260511001</td>
+<td>药品（Medicine）</td>
+</tr>
+<tr>
+<td>R</td>
+<td>MedicalRecord</td>
+<td>R260511001</td>
+<td>病历</td>
+</tr>
+<tr>
+<td>S</td>
+<td>DoctorSchedule</td>
+<td>S260511001</td>
+<td>排班</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Appointment</td>
+<td>A260511001</td>
+<td>预约</td>
+</tr>
+</tbody>
+</table>
+<p>ID
+格式：<code>[前缀][年2位][月2位][日2位][序号3位]</code>，序号每日自 001
+重新开始。</p>
+<h3 id="his_strncpy-安全宏">8.6 HIS_STRNCPY 安全宏</h3>
+<div class="sourceCode" id="cb55"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define HIS_STRNCPY</span><span class="op">(</span><span class="pp">dst</span><span class="op">,</span><span class="pp"> src</span><span class="op">,</span><span class="pp"> cap</span><span class="op">)</span><span class="pp"> </span><span class="cf">do</span><span class="pp"> </span><span class="op">{</span><span class="pp"> </span><span class="op">\</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="pp">    </span><span class="dt">char</span><span class="op">*</span><span class="pp"> _d </span><span class="op">=</span><span class="pp"> </span><span class="op">(</span><span class="pp">dst</span><span class="op">);</span><span class="pp"> </span><span class="op">\</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="pp">    </span><span class="dt">size_t</span><span class="pp"> _c </span><span class="op">=</span><span class="pp"> </span><span class="op">(</span><span class="dt">size_t</span><span class="op">)(</span><span class="pp">cap</span><span class="op">);</span><span class="pp"> </span><span class="op">\</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="pp">    </span><span class="dt">const</span><span class="pp"> </span><span class="dt">char</span><span class="op">*</span><span class="pp"> _s </span><span class="op">=</span><span class="pp"> </span><span class="op">(</span><span class="pp">src</span><span class="op">);</span><span class="pp"> </span><span class="op">\</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="pp">    </span><span class="cf">if</span><span class="pp"> </span><span class="op">(</span><span class="pp">_d </span><span class="op">&amp;&amp;</span><span class="pp"> _c </span><span class="op">&gt;</span><span class="pp"> </span><span class="dv">0</span><span class="bu">U</span><span class="op">)</span><span class="pp"> </span><span class="op">{</span><span class="pp"> </span><span class="op">\</span></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="pp">        strncpy</span><span class="op">(</span><span class="pp">_d</span><span class="op">,</span><span class="pp"> </span><span class="op">(</span><span class="pp">_s</span><span class="op">)</span><span class="pp"> </span><span class="op">?</span><span class="pp"> </span><span class="op">(</span><span class="pp">_s</span><span class="op">)</span><span class="pp"> </span><span class="op">:</span><span class="pp"> </span><span class="st">&quot;&quot;</span><span class="op">,</span><span class="pp"> _c </span><span class="op">-</span><span class="pp"> </span><span class="dv">1</span><span class="bu">U</span><span class="op">);</span><span class="pp"> </span><span class="op">\</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="pp">        _d</span><span class="op">[</span><span class="pp">_c </span><span class="op">-</span><span class="pp"> </span><span class="dv">1</span><span class="bu">U</span><span class="op">]</span><span class="pp"> </span><span class="op">=</span><span class="pp"> </span><span class="ch">&#39;</span><span class="sc">\0</span><span class="ch">&#39;</span><span class="op">;</span><span class="pp"> </span><span class="op">\</span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="pp">    </span><span class="op">}</span><span class="pp"> </span><span class="op">\</span></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span><span class="pp"> </span><span class="cf">while</span><span class="pp"> </span><span class="op">(</span><span class="dv">0</span><span class="op">)</span></span></code></pre></div>
+<p><code>strncpy</code> 在源字符串长度 ≥
+目标大小时<strong>不</strong>自动添加 ‘\0’，这是 C
+标准库的经典陷阱。此宏封装保证了：</p>
+<ol type="1">
+<li>目标缓冲区始终以 ‘\0’ 结尾</li>
+<li>源指针为 NULL 时拷贝空字符串而非崩溃</li>
+<li>目标容量为 0 时安全跳过</li>
+</ol>
+<h3 id="跨模块函数调用体系">8.7 跨模块函数调用体系</h3>
+<p>所有跨模块调用通过 <code>his.h</code> 中的 <code>extern</code>
+声明完成：</p>
+<pre><code>his_main.c
+├── patientModule()         → patient.c
+│   └── inputAndXxxRecords() → record.c
+├── dept_bedModule()        → dept_bed.c
+│   ├── doctorSubMenu()     → doctor.c
+│   └── scheduleSubMenu()   → schedule.c
+└── drugModule()            → drug.c
+    ├── globalStatsSubMenu() → admin_tools.c
+    └── backupAllData()      → admin_tools.c</code></pre>
+<p>各业务模块内部函数全部声明为
+<code>static</code>，只暴露必要的入口函数。模块间不直接引用对方内部函数，实现了
+C 语言级别的信息隐藏。</p>
+<h3 id="next_token-字段分割">8.8 next_token 字段分割</h3>
+<div class="sourceCode" id="cb57"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 按 &#39;|&#39; 分割，连续分隔符不会跳过（与 strtok 不同）</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span><span class="op">*</span> next_token<span class="op">(</span><span class="dt">char</span><span class="op">**</span> str<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span>str <span class="op">||</span> <span class="op">!*</span>str<span class="op">)</span> <span class="cf">return</span> NULL<span class="op">;</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span><span class="op">*</span> start <span class="op">=</span> <span class="op">*</span>str<span class="op">;</span></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span><span class="op">*</span> p <span class="op">=</span> strchr<span class="op">(</span>start<span class="op">,</span> <span class="ch">&#39;|&#39;</span><span class="op">);</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>p<span class="op">)</span> <span class="op">{</span> <span class="op">*</span>p <span class="op">=</span> <span class="ch">&#39;</span><span class="sc">\0</span><span class="ch">&#39;</span><span class="op">;</span> <span class="op">*</span>str <span class="op">=</span> p <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="op">{</span> <span class="op">*</span>str <span class="op">=</span> NULL<span class="op">;</span> <span class="op">}</span></span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> start<span class="op">;</span></span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>配合 <code>sscanf</code> 用于 schedule.c/drug.c 的解析，或单独使用于
+patient.c/record.c
+等模块的解析。连续分隔符正确处理空字段，是向后兼容的关键。</p>
+<div style="page-break-before:always;"></div>
+<h2 id="九相关测试数据">九、相关测试数据</h2>
+<h3 id="功能测试">9.1 功能测试</h3>
+<p>系统经过完整的黑盒功能测试，覆盖 <strong>12 个业务模块</strong>，共
+<strong>98 个测试用例</strong>，通过率 <strong>100%</strong>。</p>
+<h4 id="患者模块tc-pat-001-008">患者模块（TC-PAT-001 ~ 008）</h4>
+<table>
+<thead>
+<tr>
+<th>用例</th>
+<th>场景</th>
+<th style="text-align: center;">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC-PAT-001</td>
+<td>正常录入患者（完整信息）</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>TC-PAT-002</td>
+<td>姓名为空拦截</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>TC-PAT-003</td>
+<td>姓名修改为 49 字符（MAX-1 临界值）</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>TC-PAT-004</td>
+<td>姓名输入 60 字符（超长截断）</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>TC-PAT-005</td>
+<td>身份证含特殊字符拦截</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>TC-PAT-006</td>
+<td>手机号不足 11 位拦截</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>TC-PAT-007</td>
+<td>批量患者列表展示</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>TC-PAT-008</td>
+<td>10 名同名患者”张三”共存</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<h4 id="挂号-诊断-其他模块">挂号 &amp; 诊断 &amp; 其他模块</h4>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>用例范围</th>
+<th style="text-align: center;">用例数</th>
+<th style="text-align: center;">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>挂号</td>
+<td>TC-REG-001~009</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">✅ 全部通过</td>
+</tr>
+<tr>
+<td>诊断/处方</td>
+<td>TC-DIA-001~006</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">✅ 全部通过</td>
+</tr>
+<tr>
+<td>住院</td>
+<td>TC-INP-001~005</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">✅ 全部通过</td>
+</tr>
+<tr>
+<td>床位</td>
+<td>TC-BED-001~011</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">✅ 全部通过</td>
+</tr>
+<tr>
+<td>排班</td>
+<td>TC-SCH-001~009</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">✅ 全部通过</td>
+</tr>
+<tr>
+<td>药品</td>
+<td>TC-DRG-001~014</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">✅ 全部通过</td>
+</tr>
+<tr>
+<td>权限控制</td>
+<td>ACL-A-001~D-006</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">✅ 全部通过</td>
+</tr>
+<tr>
+<td>全局统计</td>
+<td>TC-STA-001~006</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">✅ 全部通过</td>
+</tr>
+<tr>
+<td>数据备份</td>
+<td>TC-BAK-001~003</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">✅ 全部通过</td>
+</tr>
+<tr>
+<td>退出/持久化</td>
+<td>TC-EXT-001~004</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">✅ 全部通过</td>
+</tr>
+</tbody>
+</table>
+<h3 id="边界场景测试">9.2 边界场景测试</h3>
+<p>针对输入边界进行了专项测试，<strong>44 项全部通过</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th style="text-align: center;">测试项数</th>
+<th style="text-align: center;">通过率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>姓名字段边界</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr>
+<td>年龄字段边界</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr>
+<td>手机号/身份证边界</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr>
+<td>医保/余额边界</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr>
+<td>号源与状态边界</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr>
+<td>床位状态边界</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr>
+<td>药品库存边界</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">100%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td style="text-align: center;"><strong>44</strong></td>
+<td style="text-align: center;"><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>关键边界验证结果举例：</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 44%" />
+<col style="width: 28%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr>
+<th>测试项</th>
+<th>输入</th>
+<th>预期</th>
+<th style="text-align: center;">实际</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>年龄为 0</td>
+<td>0</td>
+<td>允许（新生儿）</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>负年龄</td>
+<td>-5</td>
+<td>拦截</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>超大年龄</td>
+<td>200</td>
+<td>拦截</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>医保比例 &gt;1.0</td>
+<td>2.0</td>
+<td>钳位为 1.0</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>余额刚好等于挂号费</td>
+<td>balance == pay</td>
+<td>扣费后余额 0，挂号成功</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>号源归零</td>
+<td>current_register=0 且取消</td>
+<td>检查 &gt;0 后再减，不出负数</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>库存为 0 时出库</td>
+<td>stock=0</td>
+<td>拦截”库存不足”</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>取消已取消的预约</td>
+<td>status=“已取消” 再取消</td>
+<td>提示”已取消”</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数据容量测试">9.3 数据容量测试</h3>
+<p>批量操作测试结果：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th style="text-align: center;">目标数量</th>
+<th style="text-align: center;">实际创建</th>
+<th style="text-align: center;">耗时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>科室</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">&lt;1s</td>
+</tr>
+<tr>
+<td>医生</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">&lt;2s</td>
+</tr>
+<tr>
+<td>患者（含 10 名同名）</td>
+<td style="text-align: center;">110</td>
+<td style="text-align: center;">110</td>
+<td style="text-align: center;">&lt;5s</td>
+</tr>
+<tr>
+<td>药品</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">&lt;2s</td>
+</tr>
+<tr>
+<td>床位（三种病房类型）</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">&lt;2s</td>
+</tr>
+</tbody>
+</table>
+<p>所有 ID 唯一性验证通过，同名患者各有唯一 ID。</p>
+<p>容量推算：</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th style="text-align: center;">数据量</th>
+<th style="text-align: center;">预估内存</th>
+<th style="text-align: center;">预计响应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小型医院</td>
+<td style="text-align: center;">1000 患者 / 5000 记录</td>
+<td style="text-align: center;">&lt;2 MB</td>
+<td style="text-align: center;">即时</td>
+</tr>
+<tr>
+<td>中型医院</td>
+<td style="text-align: center;">10000 患者 / 50000 记录</td>
+<td style="text-align: center;">&lt;15 MB</td>
+<td style="text-align: center;">&lt;1s</td>
+</tr>
+<tr>
+<td>大型医院</td>
+<td style="text-align: center;">100000 患者 / 500000 记录</td>
+<td style="text-align: center;">&lt;150 MB</td>
+<td style="text-align: center;">1~3s</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数据完整性验证">9.4 数据完整性验证</h3>
+<p>通过操作前后对比数据文件内容，验证 <strong>12
+项</strong>跨模块一致性：</p>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 87%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr>
+<th>场景</th>
+<th>检查项</th>
+<th style="text-align: center;">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>挂号后</td>
+<td>patient.txt balance 减少 ✓, doctor.txt current_register 增加 ✓</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>发药后</td>
+<td>drug.txt stock 减少 ✓, record.txt 新增 PRESCR 记录 ✓</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>住院后</td>
+<td>bed.txt status=1 ✓, patient.txt is_inpatient=1 ✓</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>出院后</td>
+<td>bed.txt status=0, patient_id=-1 ✓</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>取消挂号后</td>
+<td>doctor.txt current_register 递减 ✓</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>取消预约后</td>
+<td>schedule.txt current_patients 递减 ✓, 退费 ✓</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数据保存机制">9.5 数据保存机制</h3>
+<h4 id="存储概览">存储概览</h4>
+<p>所有业务数据统一存储于 <code>data/</code>
+目录下，每个链表对应一个文本文件，字段以 <code>|</code> 分隔：</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>对应链表</th>
+<th>行数</th>
+<th>存储内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data/patient.txt</code></td>
+<td>patient_list</td>
+<td>~110</td>
+<td>患者基本信息</td>
+</tr>
+<tr>
+<td><code>data/doctor.txt</code></td>
+<td>doctor_list</td>
+<td>~20</td>
+<td>医生账号及号源</td>
+</tr>
+<tr>
+<td><code>data/dept.txt</code></td>
+<td>dept_list</td>
+<td>~5</td>
+<td>科室信息</td>
+</tr>
+<tr>
+<td><code>data/bed.txt</code></td>
+<td>bed_list</td>
+<td>~30</td>
+<td>床位状态及患者绑定</td>
+</tr>
+<tr>
+<td><code>data/drug.txt</code></td>
+<td>drug_list</td>
+<td>~20</td>
+<td>药品信息及库存</td>
+</tr>
+<tr>
+<td><code>data/record.txt</code></td>
+<td>record_list</td>
+<td>~130</td>
+<td>医疗记录（审计日志）</td>
+</tr>
+<tr>
+<td><code>data/schedule.txt</code></td>
+<td>schedule_list</td>
+<td>~10</td>
+<td>医生排班</td>
+</tr>
+<tr>
+<td><code>data/appointment.txt</code></td>
+<td>appointment_list</td>
+<td>~10</td>
+<td>预约记录</td>
+</tr>
+</tbody>
+</table>
+<h4 id="行格式示例">行格式示例</h4>
+<p>以 <code>data/patient.txt</code> 为例，每行对应一条完整记录：</p>
+<pre><code>P260511001|张三|30|男|0.70|19700|0||2|13800138000|110101199003071234|D260511001|K260511001|1|2026-05-11 09:30|123456|R260511001</code></pre>
+<h4 id="数据生命周期">数据生命周期</h4>
+<pre><code>程序启动
+  └─ main()
+       ├─ initGlobalLists()    ← 创建 8 个空链表
+       ├─ loadAllHisData()     ← 从 data/*.txt 加载全部数据
+       │    └─ 文件不存在时静默跳过（首次启动场景）
+       │
+       ├─ 业务操作
+       │    └─ 每步关键操作后调用 saveXxxData() ← 实时持久化
+       │
+       └─ 程序退出
+            └─ 不额外保存（每次 save 已实时写入）</code></pre>
+<ul>
+<li><strong>首次启动</strong>：<code>data/</code> 目录为空，各 load
+函数自动跳过，系统处于待初始化状态</li>
+<li><strong>运行过程</strong>：每次挂号、发药、录入等操作后立即调用对应的
+<code>saveXxxData()</code>，确保数据实时落地</li>
+<li><strong>原子写入</strong>：<code>saveXxxData()</code> 内部采用
+write-then-rename 模式——先写 <code>.tmp</code> 临时文件，成功后
+<code>remove()</code> 原文件再
+<code>rename()</code>，保证写入中途崩溃不会损坏原文件</li>
+</ul>
+<p><strong>运行前</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260517141312641.png"
+alt="image-20260517141312641" />
+<figcaption aria-hidden="true">image-20260517141312641</figcaption>
+</figure>
+<p><strong>运行后</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260517141352592.png"
+alt="image-20260517141352592" />
+<figcaption aria-hidden="true">image-20260517141352592</figcaption>
+</figure>
+<div style="page-break-before:always;"></div>
+<h2 id="十流程图演示">十、流程图演示</h2>
+<h3 id="登录界面流程">1.登录界面流程</h3>
+<figure>
+<img src="HIS系统报告.assets/Snipaste_2026-05-14_14-35-37.png"
+alt="Snipaste_2026-05-14_14-35-37" />
+<figcaption aria-hidden="true">Snipaste_2026-05-14_14-35-37</figcaption>
+</figure>
+<h3 id="管理员界面流程图">2.管理员界面流程图</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516152450924.png"
+alt="image-20260516152450924" />
+<figcaption aria-hidden="true">image-20260516152450924</figcaption>
+</figure>
+<h3 id="医生界面流程图">3.医生界面流程图</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516153935498.png"
+alt="image-20260516153935498" />
+<figcaption aria-hidden="true">image-20260516153935498</figcaption>
+</figure>
+<h3 id="患者界面流程图">4.患者界面流程图</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516155846404.png"
+alt="image-20260516155846404" />
+<figcaption aria-hidden="true">image-20260516155846404</figcaption>
+</figure>
+<div style="page-break-before:always;"></div>
+<h2 id="十一相关界面展示">十一、相关界面展示</h2>
+<h3 id="初始界面">1.初始界面</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516160506326.png"
+alt="image-20260516160506326" />
+<figcaption aria-hidden="true">image-20260516160506326</figcaption>
+</figure>
+<h3 id="管理员登录界面">2.管理员登录界面</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516160613579.png"
+alt="image-20260516160613579" />
+<figcaption aria-hidden="true">image-20260516160613579</figcaption>
+</figure>
+<h3 id="管理员菜单">3.管理员菜单</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516160659021.png"
+alt="image-20260516160659021" />
+<figcaption aria-hidden="true">image-20260516160659021</figcaption>
+</figure>
+<h3 id="患者与医疗记录管理">4.患者与医疗记录管理</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516160739724.png"
+alt="image-20260516160739724" />
+<figcaption aria-hidden="true">image-20260516160739724</figcaption>
+</figure>
+<h3 id="添加患者">5.添加患者</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516161024091.png"
+alt="image-20260516161024091" />
+<figcaption aria-hidden="true">image-20260516161024091</figcaption>
+</figure>
+<h3 id="查询患者">6.查询患者</h3>
+<h4 id="查询菜单">6.1 查询菜单</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516161332897.png"
+alt="image-20260516161332897" />
+<figcaption aria-hidden="true">image-20260516161332897</figcaption>
+</figure>
+<h4 id="按id查询">6.2 按ID查询</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516161206359.png"
+alt="image-20260516161206359" />
+<figcaption aria-hidden="true">image-20260516161206359</figcaption>
+</figure>
+<h4 id="按姓名查询模糊查询支持重名">6.3
+按姓名查询（模糊查询，支持重名）</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516161253143.png"
+alt="image-20260516161253143" />
+<figcaption aria-hidden="true">image-20260516161253143</figcaption>
+</figure>
+<h4 id="遍历所有患者">6.4 遍历所有患者</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516161412612.png"
+alt="image-20260516161412612" />
+<figcaption aria-hidden="true">image-20260516161412612</figcaption>
+</figure>
+<h4 id="按挂号科室查询">6.5 按挂号科室查询</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516161528713.png"
+alt="image-20260516161528713" />
+<figcaption aria-hidden="true">image-20260516161528713</figcaption>
+</figure>
+<h4 id="按就诊状态查询">6.6 按就诊状态查询</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516161614830.png"
+alt="image-20260516161614830" />
+<figcaption aria-hidden="true">image-20260516161614830</figcaption>
+</figure>
+<h3 id="修改患者信息">7.修改患者信息</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516162014523.png"
+alt="image-20260516162014523" />
+<figcaption aria-hidden="true">image-20260516162014523</figcaption>
+</figure>
+<h3 id="删除患者">8.删除患者</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516162058561.png"
+alt="image-20260516162058561" />
+<figcaption aria-hidden="true">image-20260516162058561</figcaption>
+</figure>
+<h3 id="医疗记录管理">9.医疗记录管理</h3>
+<h4 id="菜单">9.1 菜单</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516162143791.png"
+alt="image-20260516162143791" />
+<figcaption aria-hidden="true">image-20260516162143791</figcaption>
+</figure>
+<h4 id="查看患者的医疗记录">9.2 查看患者的医疗记录</h4>
+<h4 id="image-202605161625141729.3-新增医疗记录"><img
+src="HIS系统报告.assets/image-20260516162514172.png"
+alt="image-20260516162514172" />9.3 新增医疗记录</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516162536376.png"
+alt="image-20260516162536376" />
+<figcaption aria-hidden="true">image-20260516162536376</figcaption>
+</figure>
+<h4 id="修改医疗记录">9.4 修改医疗记录</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516162710846.png"
+alt="image-20260516162710846" />
+<figcaption aria-hidden="true">image-20260516162710846</figcaption>
+</figure>
+<h4 id="删除医疗记录">9.5 删除医疗记录</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516162752415.png"
+alt="image-20260516162752415" />
+<figcaption aria-hidden="true">image-20260516162752415</figcaption>
+</figure>
+<h3 id="科室医生床位管理模块">10.科室/医生/床位管理模块</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516162856381.png"
+alt="image-20260516162856381" />
+<figcaption aria-hidden="true">image-20260516162856381</figcaption>
+</figure>
+<h3 id="科室信息管理">11. 科室信息管理</h3>
+<h4 id="菜单-1">11.1 菜单</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516163104797.png"
+alt="image-20260516163104797" />
+<figcaption aria-hidden="true">image-20260516163104797</figcaption>
+</figure>
+<h4 id="添加科室-1">11.2 添加科室</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516163132030.png"
+alt="image-20260516163132030" />
+<figcaption aria-hidden="true">image-20260516163132030</figcaption>
+</figure>
+<h4 id="修改科室信息">11.3 修改科室信息</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516163226566.png"
+alt="image-20260516163226566" />
+<figcaption aria-hidden="true">image-20260516163226566</figcaption>
+</figure>
+<h4 id="删除科室">11.4 删除科室</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516163314608.png"
+alt="image-20260516163314608" />
+<figcaption aria-hidden="true">image-20260516163314608</figcaption>
+</figure>
+<h4 id="查询科室">11.5 查询科室</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516163422662.png"
+alt="image-20260516163422662" />
+<figcaption aria-hidden="true">image-20260516163422662</figcaption>
+</figure>
+<h3 id="医生信息管理">12.医生信息管理</h3>
+<h4 id="添加医生-1">12.1 添加医生</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516163716761.png"
+alt="image-20260516163716761" />
+<figcaption aria-hidden="true">image-20260516163716761</figcaption>
+</figure>
+<h4 id="修改医生信息">12.2 修改医生信息</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516163902855.png"
+alt="image-20260516163902855" />
+<figcaption aria-hidden="true">image-20260516163902855</figcaption>
+</figure>
+<h4 id="删除医生">12.3 删除医生</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516163942382.png"
+alt="image-20260516163942382" />
+<figcaption aria-hidden="true">image-20260516163942382</figcaption>
+</figure>
+<h4 id="查询医生">12.4 查询医生</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516164042190.png"
+alt="image-20260516164042190" />
+<figcaption aria-hidden="true">image-20260516164042190</figcaption>
+</figure>
+<figure>
+<img src="HIS系统报告.assets/image-20260516164124604.png"
+alt="image-20260516164124604" />
+<figcaption aria-hidden="true">image-20260516164124604</figcaption>
+</figure>
+<figure>
+<img src="HIS系统报告.assets/image-20260516164145051.png"
+alt="image-20260516164145051" />
+<figcaption aria-hidden="true">image-20260516164145051</figcaption>
+</figure>
+<h3 id="床位管理">13.床位管理</h3>
+<h4 id="菜单-2">13.1 菜单</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516164224615.png"
+alt="image-20260516164224615" />
+<figcaption aria-hidden="true">image-20260516164224615</figcaption>
+</figure>
+<h4 id="添加床位">13.2 添加床位</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516202441160.png"
+alt="image-20260516202441160" />
+<figcaption aria-hidden="true">image-20260516202441160</figcaption>
+</figure>
+<h4 id="办理住院出院-修改状态">13.3 办理住院/出院 (修改状态)</h4>
+<p><strong>住院</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516202559953.png"
+alt="image-20260516202559953" />
+<figcaption aria-hidden="true">image-20260516202559953</figcaption>
+</figure>
+<p><strong>出院</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516202633958.png"
+alt="image-20260516202633958" />
+<figcaption aria-hidden="true">image-20260516202633958</figcaption>
+</figure>
+<h4 id="删除床位">13.4 删除床位</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516203240647.png"
+alt="image-20260516203240647" />
+<figcaption aria-hidden="true">image-20260516203240647</figcaption>
+</figure>
+<h4 id="查询床位">13.5 查询床位</h4>
+<p><strong>菜单</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516202842109.png"
+alt="image-20260516202842109" />
+<figcaption aria-hidden="true">image-20260516202842109</figcaption>
+</figure>
+<p><strong>按ID精确查询</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516202907517.png"
+alt="image-20260516202907517" />
+<figcaption aria-hidden="true">image-20260516202907517</figcaption>
+</figure>
+<p><strong>按科室查询</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516203036226.png"
+alt="image-20260516203036226" />
+<figcaption aria-hidden="true">image-20260516203036226</figcaption>
+</figure>
+<p><strong>按状态查询 (空闲/占用)</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516203119447.png"
+alt="image-20260516203119447" />
+<figcaption aria-hidden="true">image-20260516203119447</figcaption>
+</figure>
+<p><strong>列出所有床位</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516203154218.png"
+alt="image-20260516203154218" />
+<figcaption aria-hidden="true">image-20260516203154218</figcaption>
+</figure>
+<h3 id="床位统计查询">14.床位统计查询</h3>
+<h4 id="菜单-3">14.1 菜单</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516203349312.png"
+alt="image-20260516203349312" />
+<figcaption aria-hidden="true">image-20260516203349312</figcaption>
+</figure>
+<h4 id="按科室统计床位使用情况">14.2 按科室统计床位使用情况</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516203439151.png"
+alt="image-20260516203439151" />
+<figcaption aria-hidden="true">image-20260516203439151</figcaption>
+</figure>
+<h4 id="全院床位统计">14.3 全院床位统计</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516203506031.png"
+alt="image-20260516203506031" />
+<figcaption aria-hidden="true">image-20260516203506031</figcaption>
+</figure>
+<h3 id="排班管理">15.排班管理</h3>
+<h4 id="菜单-4">15.1 菜单</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516203623602.png"
+alt="image-20260516203623602" />
+<figcaption aria-hidden="true">image-20260516203623602</figcaption>
+</figure>
+<h4 id="新增排班">15.2 新增排班</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516204149052.png"
+alt="image-20260516204149052" />
+<figcaption aria-hidden="true">image-20260516204149052</figcaption>
+</figure>
+<h4 id="查看排班">15.3 查看排班</h4>
+<p><strong>菜单</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516204226788.png"
+alt="image-20260516204226788" />
+<figcaption aria-hidden="true">image-20260516204226788</figcaption>
+</figure>
+<p><strong>查看所有排班</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516204300532.png"
+alt="image-20260516204300532" />
+<figcaption aria-hidden="true">image-20260516204300532</figcaption>
+</figure>
+<p><strong>按医生查看</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516204409656.png"
+alt="image-20260516204409656" />
+<figcaption aria-hidden="true">image-20260516204409656</figcaption>
+</figure>
+<p><strong>按科室查看</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516204455933.png"
+alt="image-20260516204455933" />
+<figcaption aria-hidden="true">image-20260516204455933</figcaption>
+</figure>
+<p><strong>按日期查看</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516204535315.png"
+alt="image-20260516204535315" />
+<figcaption aria-hidden="true">image-20260516204535315</figcaption>
+</figure>
+<h4 id="删除排班">15.3 删除排班</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516204840533.png"
+alt="image-20260516204840533" />
+<figcaption aria-hidden="true">image-20260516204840533</figcaption>
+</figure>
+<h4 id="修改排班">15.4 修改排班</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516204754878.png"
+alt="image-20260516204754878" />
+<figcaption aria-hidden="true">image-20260516204754878</figcaption>
+</figure>
+<h3 id="药品管理与统计模块">16.药品管理与统计模块</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516204937249.png"
+alt="image-20260516204937249" />
+<figcaption aria-hidden="true">image-20260516204937249</figcaption>
+</figure>
+<h3 id="药品信息管理">17.药品信息管理</h3>
+<h4 id="添加药品">17.1 添加药品</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516205327783.png"
+alt="image-20260516205327783" />
+<figcaption aria-hidden="true">image-20260516205327783</figcaption>
+</figure>
+<h4 id="修改药品信息">17.2 修改药品信息</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516205421848.png"
+alt="image-20260516205421848" />
+<figcaption aria-hidden="true">image-20260516205421848</figcaption>
+</figure>
+<h4 id="删除药品">17.3 删除药品</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516205954152.png"
+alt="image-20260516205954152" />
+<figcaption aria-hidden="true">image-20260516205954152</figcaption>
+</figure>
+<h4 id="查询药品">17.4 查询药品</h4>
+<p><strong>菜单</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516205553304.png"
+alt="image-20260516205553304" />
+<figcaption aria-hidden="true">image-20260516205553304</figcaption>
+</figure>
+<p><strong>按ID精确查询</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516205644072.png"
+alt="image-20260516205644072" />
+<figcaption aria-hidden="true">image-20260516205644072</figcaption>
+</figure>
+<p><strong>按关键词模糊查询 (通用名/商品名/别名)</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516205731097.png"
+alt="image-20260516205731097" />
+<figcaption aria-hidden="true">image-20260516205731097</figcaption>
+</figure>
+<p><strong>按所属科室查询</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516205818720.png"
+alt="image-20260516205818720" />
+<figcaption aria-hidden="true">image-20260516205818720</figcaption>
+</figure>
+<p><strong>列出所有药品</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516205901786.png"
+alt="image-20260516205901786" />
+<figcaption aria-hidden="true">image-20260516205901786</figcaption>
+</figure>
+<h3 id="药品库存管理">18.药品库存管理</h3>
+<h4 id="菜单-5">18.1 菜单</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516210122722.png"
+alt="image-20260516210122722" />
+<figcaption aria-hidden="true">image-20260516210122722</figcaption>
+</figure>
+<h4 id="药品出库">18.2 药品出库</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516210217072.png"
+alt="image-20260516210217072" />
+<figcaption aria-hidden="true">image-20260516210217072</figcaption>
+</figure>
+<h4 id="药品出库-1">18.3 药品出库</h4>
+<p><strong>充足</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516210446238.png"
+alt="image-20260516210446238" />
+<figcaption aria-hidden="true">image-20260516210446238</figcaption>
+</figure>
+<p><strong>不足</strong></p>
+<figure>
+<img src="HIS系统报告.assets/image-20260516211114986.png"
+alt="image-20260516211114986" />
+<figcaption aria-hidden="true">image-20260516211114986</figcaption>
+</figure>
+<h4 id="查看库存预警">18.4 查看库存预警</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516211144764.png"
+alt="image-20260516211144764" />
+<figcaption aria-hidden="true">image-20260516211144764</figcaption>
+</figure>
+<h3 id="门诊发药">19.门诊发药</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517115809855.png"
+alt="image-20260517115809855" />
+<figcaption aria-hidden="true">image-20260517115809855</figcaption>
+</figure>
+<p>当前发药流程：管理员选择患者和药品，校验余额和库存后完成发药，自动生成处方记录。
+本系统省略了”医生开处方 →
+药房审核发药”的分步流程，将两步合并为管理员一键发药。</p>
+<h3 id="全局查询统计">20.全局查询统计</h3>
+<h4 id="菜单-6">20.1 菜单</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516212129341.png"
+alt="image-20260516212129341" />
+<figcaption aria-hidden="true">image-20260516212129341</figcaption>
+</figure>
+<h4 id="一站式全局查询">20.2 一站式全局查询</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516212226367.png"
+alt="image-20260516212226367" />
+<figcaption aria-hidden="true">image-20260516212226367</figcaption>
+</figure>
+<h4 id="管理员视角统计报表">20.3 管理员视角统计报表</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260516212300544-17789377819681.png"
+alt="image-20260516212300544" />
+<figcaption aria-hidden="true">image-20260516212300544</figcaption>
+</figure>
+<h3 id="一键数据备份">21.一键数据备份</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516212339186.png"
+alt="image-20260516212339186" />
+<figcaption aria-hidden="true">image-20260516212339186</figcaption>
+</figure>
+<h3 id="修改管理员密码">22.修改管理员密码</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260516212454208.png"
+alt="image-20260516212454208" />
+<figcaption aria-hidden="true">image-20260516212454208</figcaption>
+</figure>
+<h3 id="医生登录界面">23.医生登录界面</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517111452134.png"
+alt="image-20260517111452134" />
+<figcaption aria-hidden="true">image-20260517111452134</figcaption>
+</figure>
+<h3 id="医生菜单">24.医生菜单</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517111525664.png"
+alt="image-20260517111525664" />
+<figcaption aria-hidden="true">image-20260517111525664</figcaption>
+</figure>
+<h3 id="查看我的患者">25.查看我的患者</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517111846268.png"
+alt="image-20260517111846268" />
+<figcaption aria-hidden="true">image-20260517111846268</figcaption>
+</figure>
+<h3
+id="管理医疗记录新增查看修改状态">26.管理医疗记录（新增/查看/修改状态）</h3>
+<h4 id="菜单-7">26.1 菜单</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260517111926705.png"
+alt="image-20260517111926705" />
+<figcaption aria-hidden="true">image-20260517111926705</figcaption>
+</figure>
+<h4 id="查看患者医疗记录">26.2 查看患者医疗记录</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260517112017656.png"
+alt="image-20260517112017656" />
+<figcaption aria-hidden="true">image-20260517112017656</figcaption>
+</figure>
+<h4 id="新增诊断记录">26.3 新增诊断记录</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260517112116464.png"
+alt="image-20260517112116464" />
+<figcaption aria-hidden="true">image-20260517112116464</figcaption>
+</figure>
+<h4 id="新增处方记录">26.4 新增处方记录</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260517112203773.png"
+alt="image-20260517112203773" />
+<figcaption aria-hidden="true">image-20260517112203773</figcaption>
+</figure>
+<h4 id="修改就诊状态">26.5 修改就诊状态</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260517112312645.png"
+alt="image-20260517112312645" />
+<figcaption aria-hidden="true">image-20260517112312645</figcaption>
+</figure>
+<h3 id="查看患者预约信息">27.查看患者预约信息</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517112409985.png"
+alt="image-20260517112409985" />
+<figcaption aria-hidden="true">image-20260517112409985</figcaption>
+</figure>
+<h3 id="查看我的排班">28.查看我的排班</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517112435497.png"
+alt="image-20260517112435497" />
+<figcaption aria-hidden="true">image-20260517112435497</figcaption>
+</figure>
+<h3 id="查看个人信息">29.查看个人信息</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517112507484.png"
+alt="image-20260517112507484" />
+<figcaption aria-hidden="true">image-20260517112507484</figcaption>
+</figure>
+<h3 id="修改密码">30.修改密码</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517112543463.png"
+alt="image-20260517112543463" />
+<figcaption aria-hidden="true">image-20260517112543463</figcaption>
+</figure>
+<h3 id="患者登录界面">31.患者登录界面</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517112641373-17789884025091.png"
+alt="image-20260517112641373" />
+<figcaption aria-hidden="true">image-20260517112641373</figcaption>
+</figure>
+<h3 id="患者菜单">32.患者菜单</h3>
+<h4 id="新增患者登录">32.1 新增患者登录</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260517115317314.png"
+alt="image-20260517115317314" />
+<figcaption aria-hidden="true">image-20260517115317314</figcaption>
+</figure>
+<h4 id="已有患者登录">32.2 已有患者登录</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260517112732693.png"
+alt="image-20260517112732693" />
+<figcaption aria-hidden="true">image-20260517112732693</figcaption>
+</figure>
+<h3 id="普通挂号">33.普通挂号</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517112934113.png"
+alt="image-20260517112934113" />
+<figcaption aria-hidden="true">image-20260517112934113</figcaption>
+</figure>
+<h3 id="预约挂号">34.预约挂号</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517113015989.png"
+alt="image-20260517113015989" />
+<figcaption aria-hidden="true">image-20260517113015989</figcaption>
+</figure>
+<h3 id="查看我的挂号预约记录">35.查看我的挂号/预约记录</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517113102452.png"
+alt="image-20260517113102452" />
+<figcaption aria-hidden="true">image-20260517113102452</figcaption>
+</figure>
+<h3 id="取消我的挂号预约">36.取消我的挂号/预约</h3>
+<h4 id="菜单-8">36.1 菜单</h4>
+<figure>
+<img
+src="HIS系统报告.assets/image-20260517113254055-17789887751152-17789887758043.png"
+alt="image-20260517113254055" />
+<figcaption aria-hidden="true">image-20260517113254055</figcaption>
+</figure>
+<h4 id="取消当前现场挂号">36.2 取消当前现场挂号</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260517113345881.png"
+alt="image-20260517113345881" />
+<figcaption aria-hidden="true">image-20260517113345881</figcaption>
+</figure>
+<h4 id="取消指定预约">36.3 取消指定预约</h4>
+<figure>
+<img src="HIS系统报告.assets/image-20260517113444598.png"
+alt="image-20260517113444598" />
+<figcaption aria-hidden="true">image-20260517113444598</figcaption>
+</figure>
+<h3 id="查看我的医疗记录">37.查看我的医疗记录</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517113532767.png"
+alt="image-20260517113532767" />
+<figcaption aria-hidden="true">image-20260517113532767</figcaption>
+</figure>
+<h3 id="自助充值">38.自助充值</h3>
+<figure>
+<img src="HIS系统报告.assets/image-20260517113604467.png"
+alt="image-20260517113604467" />
+<figcaption aria-hidden="true">image-20260517113604467</figcaption>
+</figure>
+<hr />
+<div style="page-break-before:always;"></div>
+<h2 id="十四项目不足与改进">十四、项目不足与改进</h2>
+<hr />
+<h3 id="链表查找性能瓶颈">1. 链表查找性能瓶颈</h3>
+<p>系统所有查找操作基于 <code>FindNode()</code> 的 O(n)
+单向链表遍历。当前数据规模（百级）无影响，但扩展到万级患者时，按 ID
+查找会产生明显延迟。</p>
+<p><strong>改进方向</strong>：引入哈希索引或跳表结构，将查找复杂度降至
+O(1) 或 O(log n)。</p>
+<hr />
+<h3 id="文本文件并发不安全">2. 文本文件并发不安全</h3>
+<p>数据以纯文本文件持久化，无文件锁机制。多进程同时操作同一文件可能产生数据覆盖或读取不一致问题。</p>
+<p><strong>改进方向</strong>：引入文件锁（<code>flock</code> /
+<code>LockFileEx</code>）或迁移至嵌入式数据库（SQLite）。</p>
+<hr />
+<h3 id="密码仅混淆不哈希">3. 密码仅混淆不哈希</h3>
+<p>nibble-swap
+是自逆变换，属于混淆（obfuscation）而非加密或哈希。任何有逆向工程能力的攻击者都可提取算法还原密码。</p>
+<p><strong>改进方向</strong>：正式环境中应使用 bcrypt / Argon2
+等专业密码哈希算法。</p>
+<hr />
+<h3 id="无完整事务回滚">4. 无完整事务回滚</h3>
+<p>发药、挂号等涉及多表联动的操作未实现 ACID
+事务。虽然通过调整保存顺序（审计记录优先）降低了数据不一致风险，但中途崩溃仍可能产生部分写入。</p>
+<p><strong>改进方向</strong>：引入日志式提交（write-ahead
+log）或迁移至支持事务的数据库。</p>
+<hr />
+<h3 id="缺少分页与搜索过滤">5. 缺少分页与搜索过滤</h3>
+<p>患者列表、医疗记录等大量数据一次性输出到终端，内容过长时直接刷屏。</p>
+<p><strong>改进方向</strong>：添加分页（<code>--More--</code>
+暂停）、支持组合条件搜索（姓名 + 科室 + 日期范围）。</p>
+<hr />
+<h3 id="控制台界面限制">6. 控制台界面限制</h3>
+<p>系统基于 Windows
+控制台，界面为字符菜单，无图形化交互。患者照片、药品图片、统计图表等无法直观展示。</p>
+<p><strong>改进方向</strong>：迁移至 Web 前端或接入 Qt 等 GUI 框架。</p>
+<hr />
+<div style="page-break-before:always;"></div>
+<h2 id="后记">后记</h2>
+<blockquote>
+<p>从需求分析、系统设计、编码实现到测试验证，完整经历了一个小型软件项目的全流程。</p>
+</blockquote>
+<hr />
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│                    项目回顾                              │
+├─────────────────────────────────────────────────────────┤
+│  ① 版本管理意识  │  Git 分支协作 · 提交粒度 · 代码审查     │
+│  ② 模块化设计     │  void* 泛型链表 · 策略模式 · 8 模块共用 │
+│  ③ 防御式编程     │  输入校验 · 原子写入 · 分精度计算       │
+│  ④ 测试驱动       │  98 例功能 · 44 项边界 · 12 项完整性    │
+└─────────────────────────────────────────────────────────┘</code></pre>
+<hr />
+<p><strong>① 版本管理意识</strong></p>
+<p>项目开发过程中，团队认识到版本控制的重要性。Git 的分支管理（feature
+branch / develop /
+main）、提交粒度控制、代码审查等机制，能有效提升多人协作效率。虽然在本次课程设计中未正式引入完整的
+Git 工作流，但成员已在后续实践中开始使用。</p>
+<p><strong>② 模块化设计的价值</strong></p>
+<p>通过 <code>void*</code> 泛型链表和函数指针策略模式，8
+个业务模块共用同一套数据管理骨架。新增实体只需提供 <code>format</code> +
+<code>parse</code>
+两个函数即可接入，体现了”低耦合、高内聚”的设计思想。</p>
+<p><strong>③ 防御式编程</strong></p>
+<p>从 <code>getValidChoice</code>
+的统一输入校验到原子写入、分精度金额计算，每一层都是在实际问题驱动下的防御性设计。先跑通、再加固的策略让开发节奏可控。</p>
+<p><strong>④ 测试驱动</strong></p>
+<p>98 个功能测试用例 + 44 项边界测试 + 12
+项完整性验证，确保了核心业务逻辑在各种异常输入和边界条件下的正确性。</p>
+<hr />
+<p>总的来说，本系统在课程设计范围内实现了稳定、可用的 HIS
+核心功能，也为后续扩展和工程化留下了明确的方向。</p>
+</body>
+</html>
+
