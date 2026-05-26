@@ -39,7 +39,7 @@ static void addDept() {
     int retry = 0;
     do {
         GenerateID(d.id, ID_PREFIX_DEPT);
-        if (++retry > 10) {
+        if (++retry > MAX_ID_RETRY) {
             printf("[错误] 无法生成唯一科室ID！\n");
             return;
         }
@@ -143,7 +143,7 @@ static void addBed() {
     int retry = 0;
     do {
         GenerateID(b.id, ID_PREFIX_BED);
-        if (++retry > 10) {
+        if (++retry > MAX_ID_RETRY) {
             printf("[错误] 无法生成唯一床位ID！\n");
             return;
         }
@@ -181,7 +181,7 @@ static void modifyBedStatus() {
         }
         b->status = BED_OCCUPIED;
         HIS_STRNCPY(b->patient_id, patient_id, MAX_ID_LEN);
-        GetSystemTime(b->admit_time);
+        HisGetSystemTime(b->admit_time);
         p->is_inpatient = PATIENT_IN;
         HIS_STRNCPY(p->bed_id, bed_id, MAX_ID_LEN);
         printf("\n[成功] 住院办理成功，患者 %s 已入住床位 %s\n", patient_id, bed_id);

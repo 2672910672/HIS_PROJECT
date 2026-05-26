@@ -50,13 +50,6 @@ int getConfirm(void) {
     return buf[0] == 'y' || buf[0] == 'Y';
 }
 
-// 带消息提示的统一确认：打印 msg + "(y/n): "，返回 1=确认 0=取消
-int confirmAction(const char* msg) {
-    if (msg) printf("%s (y/n): ", msg);
-    fflush(stdout);
-    return getConfirm();
-}
-
 // 等待用户按回车键继续
 void waitForEnter(void) {
     printf("\n按回车键继续...");
@@ -184,7 +177,7 @@ void passwordObfuscate(char* pwd) {
     }
 }
 
-void GetSystemTime(char* time_str) {
+void HisGetSystemTime(char* time_str) {
     time_t t = time(NULL);
     struct tm* tm = localtime(&t);
     snprintf(time_str, MAX_TIME_LEN, "%04d-%02d-%02d %02d:%02d:%02d",

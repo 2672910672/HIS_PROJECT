@@ -224,7 +224,7 @@ void normalRegistration(Patient* p) {
     char detail[MAX_DETAIL_LEN];
     snprintf(detail, sizeof(detail), "普通挂号 - 费用: %.2f", (double)pay / 100.0);
     HIS_STRNCPY(record.detail, detail, sizeof(record.detail));
-    GetSystemTime(record.create_time);
+    HisGetSystemTime(record.create_time);
 
     if (InsertNode(record_list, -1, &record, sizeof(MedicalRecord), record.id) != 0) {
         printf("[错误] 创建挂号记录失败！\n");
@@ -236,7 +236,7 @@ void normalRegistration(Patient* p) {
     HIS_STRNCPY(p->doctor_id, doctor_id, sizeof(p->doctor_id));
     HIS_STRNCPY(p->dept_id, dept_id, sizeof(p->dept_id));
     p->register_status = REG_STATUS_PENDING;
-    GetSystemTime(p->register_time);
+    HisGetSystemTime(p->register_time);
     HIS_STRNCPY(p->register_record_id, record.id, sizeof(p->register_record_id));
     p->record_count++;
 
@@ -264,6 +264,13 @@ void normalRegistration(Patient* p) {
 void appointmentRegistration(Patient* p) {
     printf("\n========== 预约挂号 ==========\n");
 
+    if (p->register_status == REG_STATUS_PENDING ||
+        p->register_status == REG_STATUS_IN_PROGRESS) {
+        printf("\n[提示] 您当前已有挂号记录（状态: %s），请先就诊或取消后再进行预约。\n",
+            p->register_status == REG_STATUS_PENDING ? "待就诊" : "就诊中");
+        return;
+    }
+
     char dept_id[MAX_ID_LEN] = "";
     if (selectDeptOnly(dept_id) != 0) {
         return;
@@ -286,7 +293,7 @@ void appointmentRegistration(Patient* p) {
 
         if (!s->is_available || s->current_patients >= s->max_patients)
             continue;
-        if (strcmp(s->date, today) < 0)
+        if (strcmp(s->date, today) <= 0)
             continue;
 
         // 查医生，确认属于所选科室
@@ -344,7 +351,7 @@ void appointmentRegistration(Patient* p) {
     HIS_STRNCPY(appt.schedule_id, selected_schedule->id, sizeof(appt.schedule_id));
     HIS_STRNCPY(appt.status, "已预约", sizeof(appt.status));
     appt.cost = pay;
-    GetSystemTime(appt.create_time);
+    HisGetSystemTime(appt.create_time);
 
     if (InsertNode(appointment_list, -1, &appt, sizeof(Appointment), appt.id) == 0) {
         selected_schedule->current_patients++;
@@ -362,6 +369,62 @@ void appointmentRegistration(Patient* p) {
         printf("\n[失败] 预约失败，请重试。\n");
         p->balance += pay;
     }
+}
+
+// ==================== 预约签到（转为挂号） ====================
+
+void appointmentCheckIn(Patient* p) {
+    if (p->register_status != REG_STATUS_NONE) {
+        printf("\n[提示] 您当前已有挂号记录，无法再签到。\n");
+        return;
+    }
+
+    char today[11];
+    time_t t = time(NULL);
+    struct tm* tm = localtime(&t);
+    snprintf(today, sizeof(today), "%04d-%02d-%02d",
+        tm->tm_year + 1900, tm->tm_mon + 1, tm->tm_mday);
+
+    ListNode* an = appointment_list->head;
+    while (an) {
+        Appointment* a = (Appointment*)an->data;
+        if (strcmp(a->patient_id, p->id) != 0 || strcmp(a->status, "已预约") != 0) {
+            an = an->next;
+            continue;
+        }
+
+        ListNode* sn = FindNode(schedule_list, a->schedule_id);
+        if (!sn) { an = an->next; continue; }
+        DoctorSchedule* s = (DoctorSchedule*)sn->data;
+
+        if (strcmp(s->date, today) > 0) { an = an->next; continue; }
+
+        printf("\n可签到的预约:\n");
+        printf("  预约ID: %s | 日期: %s | 时段: %s\n", a->id, s->date, s->time_slot);
+        printf("确认签到? (y/n): ");
+        if (!getConfirm()) { printf("已取消。\n"); return; }
+
+        HIS_STRNCPY(p->doctor_id, s->doctor_id, sizeof(p->doctor_id));
+        HIS_STRNCPY(p->dept_id, s->dept_id, sizeof(p->dept_id));
+        p->register_status = REG_STATUS_PENDING;
+        HisGetSystemTime(p->register_time);
+
+        HIS_STRNCPY(a->status, "已签到", sizeof(a->status));
+
+        ListNode* doc_node = FindNode(doctor_list, s->doctor_id);
+        if (doc_node) {
+            Doctor* d = (Doctor*)doc_node->data;
+            d->current_register++;
+            saveDoctorData();
+        }
+
+        savePatientData();
+        saveAppointmentData();
+        printf("\n[成功] 签到成功，已转为挂号！\n");
+        return;
+    }
+
+    printf("\n[提示] 没有可签到的预约（需为今天或之前的排班）。\n");
 }
 
 // ==================== 患者自己查看/取消挂号记录 ====================
@@ -505,7 +568,16 @@ void cancelMyRegistration(Patient* p) {
             printf("\n已取消操作。\n");
             return;
         }
+        int was_checked_in = (strcmp(a->status, "已签到") == 0);
         HIS_STRNCPY(a->status, "已取消", sizeof(a->status));
+
+        if (was_checked_in) {
+            p->register_status = REG_STATUS_NONE;
+            p->doctor_id[0] = '\0';
+            p->dept_id[0] = '\0';
+            p->register_time[0] = '\0';
+        }
+
         if (strlen(a->schedule_id) > 0) {
             ListNode* s_node = FindNode(schedule_list, a->schedule_id);
             if (s_node) {

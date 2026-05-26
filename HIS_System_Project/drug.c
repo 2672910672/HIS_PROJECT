@@ -52,7 +52,7 @@ static void addDrug() {
     int retry = 0;
     do {
         GenerateID(d.id, ID_PREFIX_DRUG);
-        if (++retry > 10) {
+        if (++retry > MAX_ID_RETRY) {
             printf("[错误] 无法生成唯一药品ID！\n");
             return;
         }
@@ -322,7 +322,7 @@ static void drugInbound() {
     // 操作记录
     {
         char now[30];
-        GetSystemTime(now);
+        HisGetSystemTime(now);
         printf("  [操作记录] %s | 入库 %s x%d | 经办人: 管理员\n", now, d->general_name, quantity);
     }
 
@@ -372,7 +372,7 @@ static void drugOutbound() {
     // 操作记录
     {
         char now[30];
-        GetSystemTime(now);
+        HisGetSystemTime(now);
         printf("  [操作记录] %s | 出库 %s x%d | 经办人: 管理员\n", now, d->general_name, quantity);
     }
 
@@ -520,8 +520,8 @@ static void issuePrescription() {
         int retry = 0;
         do {
             GenerateID(r.id, ID_PREFIX_RECORD);
-            if (++retry > 10) {
-                printf("[错误] 无法生成唯一发药记录ID！\n");
+            if (++retry > MAX_ID_RETRY) {
+                printf("[错误] 无法生成唯一记录ID！\n");
                 return;
             }
         } while (FindNode(record_list, r.id) != NULL);
@@ -532,7 +532,7 @@ static void issuePrescription() {
     r.cost = total_cost_cents;
     snprintf(r.detail, MAX_DETAIL_LEN, "门诊发药: %s x%d, 医保报销%.2f元",
         d->general_name, quantity, (double)insurance_pay_cents / 100.0);
-    GetSystemTime(r.create_time);
+    HisGetSystemTime(r.create_time);
     InsertNode(record_list, -1, &r, sizeof(MedicalRecord), r.id);
     p->record_count++;
 

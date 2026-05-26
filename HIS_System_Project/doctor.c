@@ -98,7 +98,7 @@ void addDoctor() {
     int retry = 0;
     do {
         GenerateID(d.id, ID_PREFIX_DOCTOR);
-        if (++retry > 10) {
+        if (++retry > MAX_ID_RETRY) {
             printf("[错误] 无法生成唯一医生ID！\n");
             return;
         }

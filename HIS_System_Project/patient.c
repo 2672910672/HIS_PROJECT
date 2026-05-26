@@ -21,7 +21,7 @@
     if (!verifyPatientPin(p)) return; \
 } while(0)
 
-static int inputPatientBasicInfo(Patient* p);
+
 static void inputAndModifyPatient(void);
 static void inputAndDeletePatient(void);
 static void modifyPatientInfo(Patient* p);
@@ -68,18 +68,13 @@ void savePatientData(void) {
 static void formatPatient(void* data, char* line) {
     /* 格式: id|name|age|gender|insurance_ratio|balance|is_inpatient|bed_id|record_count|phone|id_card|doctor_id|dept_id|register_status|register_time|pin|register_record_id */
     Patient* p = (Patient*)data;
-    char time_buf[MAX_TIME_LEN + 2] = "";
-    if (p->register_time[0] != '\0') {
-        time_buf[0] = '|';
-        strcpy(time_buf + 1, p->register_time);
-    }
-    snprintf(line, MAX_LINE_LEN, "%s|%s|%d|%s|%.2f|%lld|%d|%s|%d|%s|%s|%s|%s|%d%s|%s|%s",
+    snprintf(line, MAX_LINE_LEN, "%s|%s|%d|%s|%.2f|%lld|%d|%s|%d|%s|%s|%s|%s|%d|%s|%s|%s",
         p->id, p->name, p->age, p->gender,
         p->insurance_ratio, p->balance,
         p->is_inpatient, p->bed_id, p->record_count,
         p->phone, p->id_card,
         p->doctor_id, p->dept_id, p->register_status,
-        time_buf, p->pin, p->register_record_id);
+        p->register_time, p->pin, p->register_record_id);
 }
 
 void loadPatientData(void) {
@@ -123,6 +118,12 @@ static void parsePatient(char* line, void* data) {
     token = next_token(&rest);
     if (token) {
         HIS_STRNCPY(p->register_record_id, token, sizeof(p->register_record_id));
+    }
+
+    // 向后兼容：旧格式中 register_time 为空时，pin 值会左移被读成 register_time
+    if (p->pin[0] == '\0' && p->register_time[0] != '\0' && strlen(p->register_time) < sizeof(p->pin)) {
+        HIS_STRNCPY(p->pin, p->register_time, sizeof(p->pin));
+        p->register_time[0] = '\0';
     }
 }
 
@@ -188,9 +189,12 @@ static void queryPatientSubMenu(void) {
         printf("  3. 遍历所有患者\n");
         printf("  4. 按挂号科室查询\n");
         printf("  5. 按就诊状态查询\n");
+        printf("  6. 按手机号查询\n");
+        printf("  7. 按身份证号查询\n");
+        printf("  8. 按医生查询\n");
         printf("  0. 返回\n");
         printf("请选择: ");
-        choice = getValidChoice(0, 5);
+        choice = getValidChoice(0, 8);
 
         switch (choice) {
         case 1: {
@@ -280,6 +284,70 @@ static void queryPatientSubMenu(void) {
             if (count == 0) printf("  无符合条件的患者。\n");
             break;
         }
+        case 6: {
+            char phone[20];
+            printf("\n请输入手机号: ");
+            inputLine(phone, sizeof(phone));
+            if (strlen(phone) == 0) { printf("手机号不能为空！\n"); break; }
+            int count = 0;
+            ListNode* p = patient_list->head;
+            while (p) {
+                Patient* pt = (Patient*)p->data;
+                if (strcmp(pt->phone, phone) == 0) {
+                    count++;
+                    printf("  ID: %s | 姓名: %s | 年龄: %d | 性别: %s | 手机: %s\n",
+                        pt->id, pt->name, pt->age, pt->gender, pt->phone);
+                }
+                p = p->next;
+            }
+            if (count == 0) printf("未找到该手机号对应的患者。\n");
+            else printf("共找到 %d 位患者。\n", count);
+            break;
+        }
+        case 7: {
+            char id_card[20];
+            printf("\n请输入身份证号: ");
+            inputLine(id_card, sizeof(id_card));
+            if (strlen(id_card) == 0) { printf("身份证号不能为空！\n"); break; }
+            int count = 0;
+            ListNode* p = patient_list->head;
+            while (p) {
+                Patient* pt = (Patient*)p->data;
+                if (strcmp(pt->id_card, id_card) == 0) {
+                    count++;
+                    printf("  ID: %s | 姓名: %s | 年龄: %d | 性别: %s | 身份证: %s\n",
+                        pt->id, pt->name, pt->age, pt->gender, pt->id_card);
+                }
+                p = p->next;
+            }
+            if (count == 0) printf("未找到该身份证号对应的患者。\n");
+            else printf("共找到 %d 位患者。\n", count);
+            break;
+        }
+        case 8: {
+            char doctor_id[MAX_ID_LEN];
+            printf("\n请输入医生ID: ");
+            inputLine(doctor_id, sizeof(doctor_id));
+            ListNode* doc_node = FindNode(doctor_list, doctor_id);
+            if (!doc_node) { printf("医生不存在！\n"); break; }
+            Doctor* doc = (Doctor*)doc_node->data;
+            printf("\n医生 %s (%s) 下挂号患者:\n", doc->name, doc->id);
+            int count = 0;
+            ListNode* p = patient_list->head;
+            while (p) {
+                Patient* pt = (Patient*)p->data;
+                if (strcmp(pt->doctor_id, doctor_id) == 0 && pt->register_status != REG_STATUS_NONE) {
+                    count++;
+                    printf("  ID: %s | 姓名: %s | 科室ID: %s | 状态: %s\n",
+                        pt->id, pt->name, pt->dept_id,
+                        pt->register_status == REG_STATUS_PENDING ? "待就诊" :
+                        pt->register_status == REG_STATUS_IN_PROGRESS ? "就诊中" : "已完成");
+                }
+                p = p->next;
+            }
+            if (count == 0) printf("  该医生下无挂号患者。\n");
+            break;
+        }
         case 0:
             return;
         }
@@ -302,12 +370,27 @@ void patientModule(void) {
 
         switch (choice) {
         case 1: {
+            printf("\n（提示：输入过程中随时可输入 q 取消并返回菜单）\n");
             Patient p;
             memset(&p, 0, sizeof(Patient));
-            if (inputPatientBasicInfo(&p) == 0) {
-                printf("\n患者创建失败！\n");
-                break;
+            if (inputName(p.name, sizeof(p.name)) <= 0) { printf("\n已取消创建。\n"); break; }
+            if (inputGender(p.gender, sizeof(p.gender)) <= 0) { printf("\n已取消创建。\n"); break; }
+            if (inputInsuranceRatio(&p.insurance_ratio) <= 0) { printf("\n已取消创建。\n"); break; }
+            if (inputBalance(&p.balance) <= 0) { printf("\n已取消创建。\n"); break; }
+            if (inputPhone(p.phone, sizeof(p.phone), NULL) <= 0) { printf("\n已取消创建。\n"); break; }
+
+            int age_id_done = 0;
+            while (!age_id_done) {
+                if (inputAge(&p.age) <= 0) break;
+                int rc = inputIDCard(p.id_card, sizeof(p.id_card), NULL, p.age);
+                if (rc > 0) { age_id_done = 1; break; }
+                if (rc < 0) break;
+                printf("请重新输入年龄和身份证号。\n");
             }
+            if (!age_id_done) { printf("\n已取消创建。\n"); break; }
+
+            inputPin(p.pin);
+
             if (generateUniqueID(p.id, ID_PREFIX_PATIENT, patient_list) != 0) {
                 printf("[错误] 无法生成唯一患者ID！\n");
                 break;
@@ -438,19 +521,23 @@ void patientViewOnlyModule(Patient* p) {
 
 int inputName(char* out_name, size_t cap) {
     char buf[MAX_LINE_LEN];
-    printf("请输入姓名: ");
-    if (!inputLine(buf, sizeof(buf))) return 0;
-    if (strlen(buf) == 0) { printf("姓名不能为空！\n"); return 0; }
-    if (!ValidateNoPipe(buf)) { printf("姓名不能包含分隔符'|'！\n"); return 0; }
-    HIS_STRNCPY(out_name, buf, cap);
-    return 1;
+    while (1) {
+        printf("请输入姓名 (输入 q 取消): ");
+        if (!inputLine(buf, sizeof(buf))) return -1;
+        if (strcmp(buf, "q") == 0 || strcmp(buf, "Q") == 0) return -1;
+        if (strlen(buf) == 0) { printf("姓名不能为空！\n"); continue; }
+        if (!ValidateNoPipe(buf)) { printf("姓名不能包含分隔符'|'！\n"); continue; }
+        HIS_STRNCPY(out_name, buf, cap);
+        return 1;
+    }
 }
 
 int inputAge(int* out_age) {
     char buf[MAX_LINE_LEN];
     while (1) {
-        printf("请输入年龄 (0-150): ");
-        if (!inputLine(buf, sizeof(buf))) return 0;
+        printf("请输入年龄 (0-150，输入 q 取消): ");
+        if (!inputLine(buf, sizeof(buf))) return -1;
+        if (strcmp(buf, "q") == 0 || strcmp(buf, "Q") == 0) return -1;
         if (!ValidateNumber(buf)) { printf("年龄无效，请输入0-150之间的整数！\n"); continue; }
         int age = atoi(buf);
         if (age >= 0 && age <= 150) { *out_age = age; return 1; }
@@ -461,8 +548,9 @@ int inputAge(int* out_age) {
 int inputGender(char* out_gender, size_t cap) {
     char buf[MAX_LINE_LEN];
     while (1) {
-        printf("请输入性别 (男/女): ");
-        if (!inputLine(buf, sizeof(buf))) return 0;
+        printf("请输入性别 (男/女，输入 q 取消): ");
+        if (!inputLine(buf, sizeof(buf))) return -1;
+        if (strcmp(buf, "q") == 0 || strcmp(buf, "Q") == 0) return -1;
         if (strcmp(buf, "男") == 0 || strcmp(buf, "女") == 0) {
             HIS_STRNCPY(out_gender, buf, cap);
             return 1;
@@ -474,8 +562,9 @@ int inputGender(char* out_gender, size_t cap) {
 int inputInsuranceRatio(float* out_ratio) {
     char buf[MAX_LINE_LEN];
     while (1) {
-        printf("请输入医保报销比例 (0.0~1.0): ");
-        if (!inputLine(buf, sizeof(buf))) return 0;
+        printf("请输入医保报销比例 (0.0~1.0，输入 q 取消): ");
+        if (!inputLine(buf, sizeof(buf))) return -1;
+        if (strcmp(buf, "q") == 0 || strcmp(buf, "Q") == 0) return -1;
         char* endptr;
         float r = strtof(buf, &endptr);
         while (isspace((unsigned char)*endptr)) endptr++;
@@ -488,8 +577,9 @@ int inputInsuranceRatio(float* out_ratio) {
 int inputBalance(long long* out_balance) {
     char buf[MAX_LINE_LEN];
     while (1) {
-        printf("请输入初始余额: ");
-        if (!inputLine(buf, sizeof(buf))) return 0;
+        printf("请输入初始余额 (输入 q 取消): ");
+        if (!inputLine(buf, sizeof(buf))) return -1;
+        if (strcmp(buf, "q") == 0 || strcmp(buf, "Q") == 0) return -1;
         char* endptr;
         double bal = strtod(buf, &endptr);
         while (isspace((unsigned char)*endptr)) endptr++;
@@ -502,8 +592,9 @@ int inputBalance(long long* out_balance) {
 int inputPhone(char* out_phone, size_t cap, const char* exclude_id) {
     char buf[MAX_LINE_LEN];
     while (1) {
-        printf("请输入手机号 (11位手机号): ");
-        if (!inputLine(buf, sizeof(buf))) return 0;
+        printf("请输入手机号 (11位手机号，输入 q 取消): ");
+        if (!inputLine(buf, sizeof(buf))) return -1;
+        if (strcmp(buf, "q") == 0 || strcmp(buf, "Q") == 0) return -1;
         if (!ValidatePhone(buf)) {
             printf("手机号格式错误，请输入11位数字且以1开头！\n");
             continue;
@@ -520,8 +611,9 @@ int inputPhone(char* out_phone, size_t cap, const char* exclude_id) {
 int inputIDCard(char* out_idcard, size_t cap, const char* exclude_id, int current_age) {
     char buf[MAX_LINE_LEN];
     while (1) {
-        printf("请输入身份证号 (18位): ");
-        if (!inputLine(buf, sizeof(buf))) return 0;
+        printf("请输入身份证号 (18位，输入 q 取消): ");
+        if (!inputLine(buf, sizeof(buf))) return -1;
+        if (strcmp(buf, "q") == 0 || strcmp(buf, "Q") == 0) return -1;
         if (!ValidateIDCard(buf)) { printf("身份证号格式错误，请输入18位有效身份证号！\n"); continue; }
         if (isIDCardUsedByOther(buf, exclude_id)) { printf("该身份证号已被其他患者使用！\n"); continue; }
         int id_age = getAgeFromIDCard(buf);
@@ -553,21 +645,6 @@ void inputPin(char* out_pin) {
 }
 
 // ==================== 创建与修改患者 ====================
-
-static int inputPatientBasicInfo(Patient* p) {
-    if (!inputName(p->name, sizeof(p->name))) return 0;
-    if (!inputGender(p->gender, sizeof(p->gender))) return 0;
-    if (!inputInsuranceRatio(&p->insurance_ratio)) return 0;
-    if (!inputBalance(&p->balance)) return 0;
-    if (!inputPhone(p->phone, sizeof(p->phone), NULL)) return 0;
-    while (1) {
-        if (!inputAge(&p->age)) return 0;
-        if (inputIDCard(p->id_card, sizeof(p->id_card), NULL, p->age)) break;
-        printf("\n年龄和身份证号不一致，请重新输入。\n");
-    }
-    inputPin(p->pin);
-    return 1;
-}
 
 static void modifyPatientInfo(Patient* p) {
     int choice;
@@ -737,15 +814,16 @@ static Patient* createNewPatientInteractive(void) {
     Patient new_p;
     memset(&new_p, 0, sizeof(Patient));
 
-    if (!inputName(new_p.name, sizeof(new_p.name))) return NULL;
-    if (!inputGender(new_p.gender, sizeof(new_p.gender))) return NULL;
-    if (!inputPhone(new_p.phone, sizeof(new_p.phone), NULL)) return NULL;
+    if (inputName(new_p.name, sizeof(new_p.name)) <= 0) return NULL;
+    if (inputGender(new_p.gender, sizeof(new_p.gender)) <= 0) return NULL;
+    if (inputPhone(new_p.phone, sizeof(new_p.phone), NULL) <= 0) return NULL;
 
     while (1) {
-        if (!inputAge(&new_p.age)) return NULL;
-        if (inputIDCard(new_p.id_card, sizeof(new_p.id_card), NULL, new_p.age))
-            break;
-        printf("\n年龄和身份证号不一致，请重新输入。\n");
+        if (inputAge(&new_p.age) <= 0) return NULL;
+        int rc = inputIDCard(new_p.id_card, sizeof(new_p.id_card), NULL, new_p.age);
+        if (rc > 0) break;
+        if (rc < 0) return NULL;
+        printf("请重新输入年龄和身份证号。\n");
     }
 
     inputPin(new_p.pin);
@@ -822,9 +900,10 @@ void patientSelfService(void) {
         printf("  4. 取消我的挂号/预约\n");
         printf("  5. 查看我的医疗记录\n");
         printf("  6. 自助充值\n");
+        printf("  7. 预约签到（转为挂号）\n");
         printf("  0. 退出登录\n");
         printf("请选择: ");
-        choice = getValidChoice(0, 6);
+        choice = getValidChoice(0, 7);
 
         switch (choice) {
         case 1: normalRegistration(p); break;
@@ -833,6 +912,7 @@ void patientSelfService(void) {
         case 4: cancelMyRegistration(p); break;
         case 5: patientViewOnlyModule(p); break;
         case 6: patientRecharge(p); break;
+        case 7: appointmentCheckIn(p); break;
         case 0: printf("已退出登录。\n"); break;
         default: printf("无效选择！\n");
         }

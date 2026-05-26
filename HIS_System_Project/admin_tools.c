@@ -8,7 +8,9 @@
  */
 static void printGlobalQuery();
 static void printAdminStats();
-static void exportStatsToFile(int total_bed, int occupied_bed, int low_stock_count);
+static void exportStatsToFile(int total_bed, int occupied_bed, int low_stock_count,
+    long long reg_revenue, long long appt_revenue, long long drug_revenue,
+    long long other_revenue, long long insurance_est);
 
 // ==================== 全局查询统计 ====================
 void globalStatsSubMenu() {
@@ -151,14 +153,50 @@ static void printAdminStats() {
         printf("   所有药品库存充足。\n");
     }
 
-    exportStatsToFile(total_bed, occupied_bed, low_stock_count);
+    // 4. 财务收入统计
+    long long reg_revenue = 0, appt_revenue = 0, drug_revenue = 0, other_revenue = 0, insurance_est = 0;
+    p = record_list->head;
+    while (p) {
+        MedicalRecord* r = (MedicalRecord*)p->data;
+        if (!r->cancelled) {
+            switch (r->type) {
+            case RECORD_REGISTER: reg_revenue += r->cost; break;
+            case RECORD_PRESCR:   drug_revenue += r->cost; break;
+            default:              other_revenue += r->cost; break;
+            }
+        }
+        p = p->next;
+    }
+    ListNode* ap = appointment_list->head;
+    while (ap) {
+        Appointment* a = (Appointment*)ap->data;
+        if (strcmp(a->status, "已取消") != 0) {
+            appt_revenue += a->cost;
+        }
+        ap = ap->next;
+    }
+    long long total_revenue = reg_revenue + appt_revenue + drug_revenue + other_revenue;
+    insurance_est = (long long)(total_revenue * 0.3);
+    printf("\n[3] 财务收入统计\n");
+    printf("  挂号费收入: %.2f 元\n", (double)reg_revenue / 100.0);
+    printf("  预约费收入: %.2f 元\n", (double)appt_revenue / 100.0);
+    printf("  处方药费收入: %.2f 元\n", (double)drug_revenue / 100.0);
+    printf("  其他医疗费用: %.2f 元\n", (double)other_revenue / 100.0);
+    printf("  总收入合计: %.2f 元\n", (double)total_revenue / 100.0);
+    printf("  医保报销预估: %.2f 元\n", (double)insurance_est / 100.0);
+    printf("  患者自付合计: %.2f 元\n", (double)(total_revenue - insurance_est) / 100.0);
+
+    exportStatsToFile(total_bed, occupied_bed, low_stock_count,
+        reg_revenue, appt_revenue, drug_revenue, other_revenue, insurance_est);
     PrintSeparator();
 }
 
 // 导出统计报表到时间戳文件
-static void exportStatsToFile(int total_bed, int occupied_bed, int low_stock_count) {
+static void exportStatsToFile(int total_bed, int occupied_bed, int low_stock_count,
+    long long reg_revenue, long long appt_revenue, long long drug_revenue,
+    long long other_revenue, long long insurance_est) {
     char now[30];
-    GetSystemTime(now);
+    HisGetSystemTime(now);
     char safe_time[30];
     int si = 0;
     for (int ci = 0; now[ci] && si < (int)sizeof(safe_time) - 1; ci++) {
@@ -181,7 +219,16 @@ static void exportStatsToFile(int total_bed, int occupied_bed, int low_stock_cou
         fprintf(fp, "总床位: %d | 占用: %d | 空闲: %d | 使用率: %.1f%%\n",
             total_bed, occupied_bed, total_bed - occupied_bed,
             total_bed > 0 ? (float)occupied_bed / total_bed * 100 : 0);
-        fprintf(fp, "库存预警药品: %d 种\n", low_stock_count);
+        fprintf(fp, "库存预警药品: %d 种\n\n", low_stock_count);
+        fprintf(fp, "[3] 财务收入统计\n");
+        fprintf(fp, "  挂号费收入: %.2f 元\n", (double)reg_revenue / 100.0);
+        fprintf(fp, "  预约费收入: %.2f 元\n", (double)appt_revenue / 100.0);
+        fprintf(fp, "  处方药费收入: %.2f 元\n", (double)drug_revenue / 100.0);
+        fprintf(fp, "  其他医疗费用: %.2f 元\n", (double)other_revenue / 100.0);
+        long long total_revenue = reg_revenue + appt_revenue + drug_revenue + other_revenue;
+        fprintf(fp, "  总收入合计: %.2f 元\n", (double)total_revenue / 100.0);
+        fprintf(fp, "  医保报销预估: %.2f 元\n", (double)insurance_est / 100.0);
+        fprintf(fp, "  患者自付合计: %.2f 元\n\n", (double)(total_revenue - insurance_est) / 100.0);
         fprintf(fp, "=== 报表结束 ===\n");
         fclose(fp);
         printf("  [导出] 报表已保存至 %s\n", filename);

@@ -43,7 +43,7 @@
 #define APPOINTMENT_FEE     2000    // 预约挂号费（分）
 #define DEFAULT_INSURANCE   0.7f    // 默认医保报销比例 (70%)
 #define DRUG_WARNING_RATIO  0.2f    // 库存预警系数 (低于阈值20%预警)
-#define MAX_ID_RETRY        10      // ID 生成最大重试次数
+#define MAX_ID_RETRY        999     // ID 生成最大重试次数
 
 // ==================== 5. 管理员登录配置 ====================
 #define ADMIN_USERNAME      "admin"       // 管理员账号
@@ -87,7 +87,6 @@ typedef enum {
 } RegStatus;
 
 // ==================== 7. 通用分隔符定义 ====================
-#define FILE_SEP            "|"     // 文件字段分隔符
 #define MENU_LINE_LEN       56      // 菜单分隔线长度
 
 #endif

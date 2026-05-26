@@ -193,7 +193,7 @@ static void addSchedule() {
     int retry = 0;
     do {
         GenerateID(s.id, ID_PREFIX_SCHEDULE);
-        if (++retry > 10) {
+        if (++retry > MAX_ID_RETRY) {
             printf("[错误] 无法生成唯一排班ID！\n");
             return;
         }

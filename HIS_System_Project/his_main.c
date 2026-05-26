@@ -117,7 +117,7 @@ LinkList* appointment_list; // 预约链表（患者预约记录，关联排班I
  * 按照依赖顺序加载：先加载科室和医生（其他模块引用），再加载患者、床位等。
  * 空文件（首次运行）可正常加载为空链表，不报错。
  */
-static void loadAllHisData(void) {
+void loadAllHisData(void) {
     loadAdminConfig();           // 管理员持久化密码（可选文件）
     loadDeptData();              // 科室数据（无依赖，最先加载）
     loadDoctorData();            // 医生数据（关联科室 ID）
@@ -135,7 +135,7 @@ static void loadAllHisData(void) {
  * 运行期间各模块的修改已经即时写回文件（每次 saveXxxData()），
  * 此处作为兜底，确保内存中的最新状态全部持久化。
  */
-static void saveAllHisData(void) {
+void saveAllHisData(void) {
     savePatientData();
     saveRecordData();
     saveDeptData();
@@ -184,7 +184,7 @@ void freeGlobalLists() {
  * 打印系统主菜单
  * 三个入口：管理员、医生、患者，以及退出选项。
  */
-void printMainMenu() {
+static void printMainMenu() {
     PrintSeparator();
     printf("           HIS医院信息系统 [主菜单]\n");
     PrintSeparator();
@@ -251,6 +251,14 @@ static int adminLogin() {
         PrintSeparator();
         return 0;
     }
+}
+
+/*
+ * GUI 模块登录验证辅助
+ */
+int verifyAdminPassword(const char* username, const char* password) {
+    return (strcmp(username, ADMIN_USERNAME) == 0 &&
+            strcmp(password, s_admin_password) == 0);
 }
 
 /*
@@ -587,6 +595,7 @@ static void patientMenu() {
  * 注意：患者操作不需要登录验证，直接进入患者菜单。
  * ==========================================================================
  */
+#ifndef _HIS_GUI
 int main(void) {
     initGlobalLists();   /* 分配 8 个全局链表的头节点 */
     loadAllHisData();    /* 从 data 目录的 txt 文件加载所有持久化数据 */
@@ -619,5 +628,5 @@ int main(void) {
             printf("[错误] 无效选择，请重新输入！\n");
         }
     }
-    return 0;
 }
+#endif /* _HIS_GUI */

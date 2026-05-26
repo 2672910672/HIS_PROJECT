@@ -119,7 +119,7 @@ static void addMedicalRecordByDoctor(int recordType) {
         printf("[错误] 无法生成唯一%s记录ID！\n", label);
         return;
     }
-    GetSystemTime(r.create_time);
+    HisGetSystemTime(r.create_time);
     if (InsertNode(record_list, -1, &r, sizeof(MedicalRecord), r.id) == 0) {
         ListNode* pn = FindNode(patient_list, r.patient_id);
         if (pn) ((Patient*)pn->data)->record_count++;
@@ -423,7 +423,7 @@ void inputAndAddRecord(void) {
         return;
     }
 
-    GetSystemTime(r.create_time);
+    HisGetSystemTime(r.create_time);
 
     if (InsertNode(record_list, -1, &r, sizeof(MedicalRecord), r.id) == 0) {
         ListNode* pn = FindNode(patient_list, r.patient_id);

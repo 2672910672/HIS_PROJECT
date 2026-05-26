@@ -160,7 +160,7 @@ void ClearInputBuffer();
 void readString(char* buf, int size);        // 统一字符串输入（fgets+清换行+溢出处理）
 int inputLine(char* buf, size_t size);       // 安全行输入：fgets+溢出清理，返回1成功
 int getConfirm(void);                        // 统一 y/n 确认输入
-int confirmAction(const char* msg);          // 带消息提示的统一确认
+
 int getValidChoice(int min, int max);   // 统一菜单输入校验
 void GenerateID(char* id, char type);
 int generateUniqueID(char* out_id, char prefix, LinkList* list);  // 安全生成唯一ID，0成功/-1失败
@@ -168,7 +168,7 @@ int ValidateNumber(const char* str);
 int ValidatePhone(const char* phone);           // 手机号格式校验
 int ValidateIDCard(const char* id_card);         // 身份证号格式校验
 int ValidateNoPipe(const char* str);             // 禁止字段分隔符"|"
-void GetSystemTime(char* time_str);
+void HisGetSystemTime(char* time_str);
 int SaveDataToFile(LinkList* list, const char* filename, void (*format_func)(void*, char*));
 int LoadDataFromFile(LinkList* list, const char* filename, void (*parse_func)(char*, void*));
 void PrintSeparator();                                              // 打印菜单分隔线
@@ -176,9 +176,6 @@ void passwordObfuscate(char* pwd);                                  // 密码混
 void waitForEnter(void);                                            // 等待回车继续
 
 // ==================== 功能函数 ====================
-// 预约挂号模块函数
-void appointSubMenu();
-
 // --- 模块入口函数 (各模块实现) ---
 void patientModule();
 void dept_bedModule();
@@ -187,6 +184,13 @@ void doctorSubMenu();
 void scheduleSubMenu();
 void globalStatsSubMenu();
 void backupAllData();
+
+/* GUI 模块需要额外入口（原是 his_main.c static 函数，GUI 模式需要访问） */
+extern int verifyAdminPassword(const char* username, const char* password);
+extern void initGlobalLists(void);
+extern void loadAllHisData(void);
+extern void saveAllHisData(void);
+extern void freeGlobalLists(void);
 
 // --- 模块间共用函数 ---
 extern void printDeptInfo(void* data);
@@ -248,6 +252,7 @@ extern void appointmentRegistration(Patient* p);  // 预约挂号，患者菜单
 extern void viewMyRegistration(Patient* p);       // 查看挂号记录，患者菜单选项3
 extern void cancelMyRegistration(Patient* p);     // 取消我的挂号/预约，患者菜单选项4
 extern void patientRecharge(Patient* p);          // 自助充值，患者菜单选项6
+extern void appointmentCheckIn(Patient* p);       // 预约签到（转为挂号），患者菜单选项7
 
 // ==================== 医生菜单相关函数 (his_main.c 使用) ====================
 extern void queryPatientByDoctor(void);     // 医生查看患者，医生菜单选项1

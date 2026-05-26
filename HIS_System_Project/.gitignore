@@ -1,0 +1,24 @@
+# 临时调试文件
+data/_*.txt
+data/_*
+
+# Visual Studio 生成文件
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.log
+Debug/
+Release/
+x64/
+x86/
+*.sdf
+*.opensdf
+*.cachefile
+*.user
+*.suo
+.vs/
+
+# Windows
+Thumbs.db
+Desktop.ini
